@@ -6,17 +6,21 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':        
-        username = request.form['username']
-        password = request.form['password']
-        # Exemplo simples de validação
-        if username == 'admin' and password == 'admin':
-            return redirect(url_for('home'))
-        else:
-            return "Credenciais Inválidas!"
-    return render_template('login.html')
+@app.route('/devicePrompt', methods=['GET'])
+def devicePrompt():
+    return render_template('devicePrompt.html')
+
+@app.route('/deviceDenied', methods=['GET'])
+def deviceDenied():
+    return render_template('deviceDenied.html')
+
+@app.route('/deviceError', methods=['GET'])
+def deviceError():
+    return render_template('deviceError.html')
+
+@app.route('/deviceNotFound', methods=['GET'])
+def deviceNotFound():
+    return render_template('deviceNotFound.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

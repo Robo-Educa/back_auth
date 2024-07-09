@@ -1,62 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robô Educa</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Educa</title>
 
-    .secao1 {
-        height: 100vh; 
-        background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        font-family: 'Press Start 2P', sans-serif; 
-        color: white;
-    }
+    <style>
+        body {
+            text-align: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #662d91 0%, #BC70A4 50%, #BFD641 100%);
+            padding: auto;
+        }
 
-    .secao1 h1 {
-        font-size: 4em; /* Tamanho da fonte 3 vezes maior */
-        margin-bottom: 20px;
-    }
+        i.fa {
+            display: inline-block;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 4px black;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
 
-    .secao1 button {
-        margin: 10px;
-        padding: 15px 30px;
-        font-size: 1.2rem;
-        background-color: #ec261f; /* Cor azul para os botões */
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
 
-    .secao1 button:hover {
-        background-color: #0b1635; /* Cor azul mais escura ao passar o mouse */
-    }    
-</style>
+        #DeviceDeniedHeader {
+            text-align: center;
+            align-items: center;
+            height: auto;
+            background-color: #1fc8db;
+            background-image: linear-gradient(140deg, #662d91 0%, #BC70A4 50%, #BFD641 75%);
+            opacity: 0.95;
+            padding: 20px
+        }
 
-<!-- Incluir a fonte Press Start 2P do Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        #DeviceDeniedBrowsers {
+            text-align: left;
+            align-items: left;
+        }
+
+        #divAuxComands {
+            text-align: right;
+            align-items: right;
+            width: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+            /* ie8 */
+        }
+
+        #divSpinner {
+            text-align: center;
+            align-items: center;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        label {
+            float: left;
+            width: 10%;
+            line-height: 1.5;
+        }
+
+        .rate-value,
+        .pitch-value {
+            float: right;
+            width: 5%;
+            line-height: 1.5;
+        }
+
+        #rate,
+        #pitch {
+            float: right;
+            width: 75%;
+        }
+
+        li {
+            text-align: left;
+            align-items: left;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple">
+
+    <script type="text/javascript" src="/static/js/display.js"></script>
+    <script type="text/javascript" src="/static/js/mediaDevices.js"></script>    
 
 </head>
+
 <body>
 
-<!-- Seção 1 -->
-<section class="secao1">
-    <h1>Robô Educa</h1>
-    <a href="{{ url_for('login') }}"> <button>Entrar</button> </a>
-</section>
+    <div id="divMenu">
+        <h1 class="font-effect-shadow-multiple">Robô Educa</h1>
+        <button type="button" onclick="getPermissions();"><i class="fa fa-4x fa-play"></i></button>&nbsp;&nbsp;&nbsp;
+        <h1 class="font-effect-shadow-multiple">Construa seu próprio Robô</h1>
+    </div>
+
+    <div id="divStartPublic" style="display: none;">
+        <div id="divAuxComands">
+            <button type="button" onclick="quit();"><i class="fa fa-undo"></i></button>
+        </div>
+        <button type="button"><i class="fa fa-4x fa-eye"></i></button>
+        <button type="button"><i class="fa fa-4x fa-eye"></i></button>
+        <br><br>
+        <button type="button"><i class="fa fa-4x fa-microphone"></i></button>
+        <br><br>
+    </div>
+
+    <div id="divInteractionMsg"></div>
+    <br>
+
+    <div id="divImage" style="display: none;">
+        <img id="divImageImg" src="/static/images/wavesOn.gif" alt="Imagem de ondas sonoras"><br>
+    </div>
+
+    <script type="text/javascript">
+
+        async function getPermissions() {
+            let micPermission = await devices_getStatusPermission('microphone');
+            switch (micPermission) {
+                case 'granted':
+                    let speechPermission = await devices_getStatusSpeechRecognition();
+                    if (speechPermission == "granted") {
+                        display_openFullscreen();
+                        display_start();    
+                    } else {
+                        display_goToPage("deviceError")                
+                    }                    
+                    break;
+                case 'prompt':
+                    display_goToPage("devicePrompt")   
+                    break;
+                case 'denied':
+                    display_goToPage("deviceDenied")   
+                    break;
+                case 'notFound':
+                    display_goToPage("deviceNotFound")   
+                    break;                
+            }            
+        }
+
+        function quit() {
+            display_quitStart();
+            display_closeFullscreen();
+        }
+        
+    </script>
 
 </body>
+
 </html>
