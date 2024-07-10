@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+#region: ROTAS
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -21,6 +22,13 @@ def deviceError():
 @app.route('/deviceNotFound', methods=['GET'])
 def deviceNotFound():
     return render_template('deviceNotFound.html')
+
+@app.route('/talk')
+def talk():
+    response = {"message": "Hello from the /talk route!"}
+    return response
+
+#endregion 
 
 if __name__ == '__main__':
     app.run(debug=True)

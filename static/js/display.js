@@ -1,4 +1,4 @@
-function display_openFullscreen() {
+function openFullscreen() {
     var elem = document.documentElement;
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
@@ -9,7 +9,7 @@ function display_openFullscreen() {
     }
 }
 
-function display_closeFullscreen() {
+function closeFullscreen() {
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.webkitExitFullscreen) { /* Safari */
@@ -19,19 +19,24 @@ function display_closeFullscreen() {
     }
 }
 
-function display_goToPage(page) {
+function goToPage(page) {
     window.location.href = page;
 }
 
-function display_quitStart() {    
+function divFaceHide() {    
     document.getElementById("divStartPublic").style.display = "none";
-    document.getElementById("divImage").style.display = "none";
+    document.getElementById("divLip").style.display = "none";
+    document.getElementById("divInteractionMsg").style.display = "none";    
     document.getElementById("divMenu").style.display = "block";
 }
 
-function display_start(){
+function divFaceShow(){
     document.getElementById("divMenu").style.display = "none";
     document.getElementById("divStartPublic").style.display = "block";
-    document.getElementById("divImage").style.display = "block";                
+}
+
+function divMsgShow(message) {
+    document.getElementById("divInteractionMsg").style.display = "block";
+    document.getElementById("divInteractionMsg").innerHTML = message;    
 }
 

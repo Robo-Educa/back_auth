@@ -100,6 +100,7 @@
 
     <script type="text/javascript" src="/static/js/display.js"></script>
     <script type="text/javascript" src="/static/js/mediaDevices.js"></script>    
+    <script type="text/javascript" src="/static/js/talk.js"></script>    
 
 </head>
 
@@ -107,7 +108,7 @@
 
     <div id="divMenu">
         <h1 class="font-effect-shadow-multiple">Robô Educa</h1>
-        <button type="button" onclick="getPermissions();"><i class="fa fa-4x fa-play"></i></button>&nbsp;&nbsp;&nbsp;
+        <button type="button" onclick="start();"><i class="fa fa-4x fa-play"></i></button>&nbsp;&nbsp;&nbsp;
         <h1 class="font-effect-shadow-multiple">Construa seu próprio Robô</h1>
     </div>
 
@@ -115,49 +116,52 @@
         <div id="divAuxComands">
             <button type="button" onclick="quit();"><i class="fa fa-undo"></i></button>
         </div>
-        <button type="button"><i class="fa fa-4x fa-eye"></i></button>
-        <button type="button"><i class="fa fa-4x fa-eye"></i></button>
+        <i class="fa fa-4x fa-eye"></i>
+        <i class="fa fa-4x fa-eye"></i>
         <br><br>
-        <button type="button"><i class="fa fa-4x fa-microphone"></i></button>
+        <i class="fa fa-4x fa-microphone"></i>
         <br><br>
     </div>
 
     <div id="divInteractionMsg"></div>
     <br>
 
-    <div id="divImage" style="display: none;">
-        <img id="divImageImg" src="/static/images/wavesOn.gif" alt="Imagem de ondas sonoras"><br>
-    </div>
+    <div id="divLip" style="display: none;"></div>
 
     <script type="text/javascript">
 
-        async function getPermissions() {
+        var bot_message;
+
+        async function start() {
             let micPermission = await devices_getStatusPermission('microphone');
             switch (micPermission) {
                 case 'granted':
                     let speechPermission = await devices_getStatusSpeechRecognition();
                     if (speechPermission == "granted") {
-                        display_openFullscreen();
-                        display_start();    
-                    } else {
-                        display_goToPage("deviceError")                
+                        openFullscreen();
+                        divFaceShow();    
+                        bot_message = await getBotMessage();
+                        divMsgShow(bot_message);
+                    } 
+                    else {
+                        goToPage("deviceError")                
                     }                    
                     break;
                 case 'prompt':
-                    display_goToPage("devicePrompt")   
+                    goToPage("devicePrompt")   
                     break;
                 case 'denied':
-                    display_goToPage("deviceDenied")   
+                    goToPage("deviceDenied")   
                     break;
                 case 'notFound':
-                    display_goToPage("deviceNotFound")   
+                    goToPage("deviceNotFound")   
                     break;                
             }            
         }
 
         function quit() {
-            display_quitStart();
-            display_closeFullscreen();
+            divFaceHide();
+            closeFullscreen();
         }
         
     </script>

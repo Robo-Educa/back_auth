@@ -55,16 +55,16 @@
         let micPermission = await devices_micPrompt();  
         switch (micPermission) {
             case 'granted':
-                display_goToPage("/")       
+                goToPage("/")       
                 break;
             case 'denied':
-                display_goToPage("deviceDenied")       
+                goToPage("deviceDenied")       
                 break;
             case 'notFound':
-                display_goToPage("deviceNotFound")       
+                goToPage("deviceNotFound")       
                 break;
             case 'error':
-                display_goToPage("deviceError")       
+                goToPage("deviceError")       
                 break;                
         }          
     }
