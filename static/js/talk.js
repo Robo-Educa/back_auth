@@ -1,6 +1,6 @@
 async function getBotMessage() {
     let message;
-    await fetch('/talk')
+    await fetch('/getBotMessage')
         .then(response => response.json())
         .then(data => {
             message = data.message;
