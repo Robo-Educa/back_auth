@@ -1,5 +1,5 @@
 from main import app
-from flask import render_template, request
+from flask import render_template, request, session, redirect, url_for
 from geminiBot import *
 import repository.users as users
 
@@ -21,11 +21,7 @@ def deviceError():
 
 @app.route('/deviceNotFound')
 def deviceNotFound():
-    return render_template('deviceNotFound.html')
-
-@app.route('/interaction')
-def interaction():
-    return render_template('interaction.html')
+    return render_template('deviceNotFound.html') 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():    
@@ -43,14 +39,26 @@ def login():
                 status = "errorPwd" 
             else:
                 status = "success" 
-                #userRole = doc_dic["role"]            
+                session["userName"] = username
+                session["userRole"] = doc_dic["role"]
         
         response = {"status": status}
         return response        
         
     return render_template('login.html')
 
-@app.route('/getBotMessage')
-def getBotMessage():    
-    response = botMessage()    
-    return response
+@app.route('/logout')
+def logout():
+    session.pop('userName', None)
+    session.pop('userRole', None)  
+    response = {"status": "success"}
+    return response          
+
+@app.route('/interaction')
+def interaction():
+    if not session.get('userName'):
+        return redirect(url_for('login'))    
+            
+    return render_template('interaction.html')   
+    
+    

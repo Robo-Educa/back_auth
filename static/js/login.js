@@ -37,3 +37,13 @@ async function login() {
     });
     
 }
+
+async function logout() {       
+    await fetch('/logout')
+        .then(response => response.json())
+        .then(data => {
+            message = data.status;            
+        })
+        .catch(error => message = error );
+    goToPage("login");
+}
