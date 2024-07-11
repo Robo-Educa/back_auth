@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Educa</title>
+
+    <style>
+        body {
+            text-align: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #662d91 0%, #BC70A4 50%, #BFD641 100%);
+            padding: auto;
+        }
+
+        i.fa {
+            display: inline-block;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 4px black;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
+
+        
+        #divAuxComands {
+            text-align: right;
+            align-items: right;
+            width: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+            /* ie8 */
+        }
+
+        #divSpinner {
+            text-align: center;
+            align-items: center;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        label {
+            float: left;
+            width: 10%;
+            line-height: 1.5;
+        }
+
+        .rate-value,
+        .pitch-value {
+            float: right;
+            width: 5%;
+            line-height: 1.5;
+        }
+
+        #rate,
+        #pitch {
+            float: right;
+            width: 75%;
+        }
+
+        li {
+            text-align: left;
+            align-items: left;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple">    
+
+</head>
+
+<body>
+
+    <div id="divInteraction">
+        <div id="divAuxComands">
+            <button type="button" onclick=""><i class="fa fa-undo"></i></button>
+        </div>
+        <i class="fa fa-4x fa-eye"></i>
+        <i class="fa fa-4x fa-eye"></i>
+        <br><br>
+        <i class="fa fa-4x fa-microphone"></i>
+        <br><br>
+    </div>    
+
+</body>
+
+</html>
