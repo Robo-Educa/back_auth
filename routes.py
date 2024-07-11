@@ -22,6 +22,10 @@ def deviceError():
 def deviceNotFound():
     return render_template('deviceNotFound.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route('/getBotMessage')
 def getBotMessage():    
     response = botMessage()    

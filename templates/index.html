@@ -108,43 +108,26 @@
 
     <div id="divMenu">
         <h1 class="font-effect-shadow-multiple">Robô Educa</h1>
-        <button type="button" onclick="start();"><i class="fa fa-4x fa-play"></i></button>&nbsp;&nbsp;&nbsp;
-        <h1 class="font-effect-shadow-multiple">Construa seu próprio Robô</h1>
+        <button type="button" onclick="getPermissions();"><i class="fa fa-4x fa-play"></i></button>&nbsp;&nbsp;&nbsp;
+        <h1 class="font-effect-shadow-multiple">Programação e Inteligência Artificial</h1>
     </div>
-
-    <div id="divStartPublic" style="display: none;">
-        <div id="divAuxComands">
-            <button type="button" onclick="quit();"><i class="fa fa-undo"></i></button>
-        </div>
-        <i class="fa fa-4x fa-eye"></i>
-        <i class="fa fa-4x fa-eye"></i>
-        <br><br>
-        <i class="fa fa-4x fa-microphone"></i>
-        <br><br>
-    </div>
-
-    <div id="divInteractionMsg"></div>
-    <br>
-
+    
     <div id="divLip" style="display: none;"></div>
 
     <script type="text/javascript">
 
         var bot_message;
 
-        async function start() {
+        async function getPermissions() {
             let micPermission = await devices_getStatusPermission('microphone');
             switch (micPermission) {
                 case 'granted':
                     let speechPermission = await devices_getStatusSpeechRecognition();
                     if (speechPermission == "granted") {
-                        openFullscreen();
-                        divFaceShow();    
-                        bot_message = await getBotMessage();
-                        divMsgShow(bot_message);
+                        goToPage("login");  
                     } 
                     else {
-                        goToPage("deviceError")                
+                        goToPage("deviceError");
                     }                    
                     break;
                 case 'prompt':
