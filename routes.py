@@ -1,7 +1,6 @@
 from main import app
 from flask import render_template, request, session, redirect, url_for
-from geminiBot import *
-import repository.users as users
+import service.loginService as loginService
 
 @app.route('/')
 def home():
@@ -28,30 +27,15 @@ def login():
     if request.method == 'POST':                        
         data = request.get_json()
         username = data.get('username')
-        password = data.get('password')
-        
-        user = users.find("name", username)
-        if user is None:
-            status = "errorUser"
-        else:
-            doc_dic = user[0].to_dict()
-            if doc_dic["password"] != password:
-                status = "errorPwd" 
-            else:
-                status = "success" 
-                session["userName"] = username
-                session["userRole"] = doc_dic["role"]
-        
-        response = {"status": status}
+        password = data.get('password')                      
+        response = loginService.login(username, password)
         return response        
-        
-    return render_template('login.html')
+    else:        
+        return render_template('login.html')
 
 @app.route('/logout')
 def logout():
-    session.pop('userName', None)
-    session.pop('userRole', None)  
-    response = {"status": "success"}
+    response = loginService.logout()
     return response          
 
 @app.route('/interaction')

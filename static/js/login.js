@@ -42,8 +42,14 @@ async function logout() {
     await fetch('/logout')
         .then(response => response.json())
         .then(data => {
-            message = data.status;            
+            response = data.status;            
         })
-        .catch(error => message = error );
-    goToPage("login");
+        .catch(error => response = error );
+    if (response = "success") {
+        goToPage("login");
+    } 
+    else{
+        alert("Não foi possível efetuar LogOut");
+    }
+    
 }
