@@ -33,7 +33,7 @@
             font-size: large;
         }
 
-        
+
         #divAuxComands {
             text-align: right;
             align-items: right;
@@ -82,25 +82,34 @@
     </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple" />
 
-    <script type="text/javascript" src="/static/js/login.js"></script>    
+    <script type="text/javascript" src="/static/js/login.js"></script>
     <script type="text/javascript" src="../static/js/display.js"></script>
+    <script type="text/javascript" src="../static/js/talk.js"></script>
 
 </head>
 
 <body>
 
-    <div id="divInteraction">
-        <div id="divAuxComands">
-            <button type="button" onclick="logout();"><i class="fa fa-window-close-o"></i></button>
-        </div>
-        <i class="fa fa-4x fa-eye"></i>
-        <i class="fa fa-4x fa-eye"></i>
-        <br><br>
-        <i class="fa fa-4x fa-microphone"></i>
-        <br><br>
-    </div>    
+    <div id="divAuxComands">
+        <button type="button" onclick="logout();"><i class="fa fa-window-close-o"></i></button>
+    </div>
+
+    <script type="text/javascript">
+
+        window.onload = async function () {
+            console.log("Talking with Bot...")
+            botResponse = await talkWithBot("Oi");
+            alert("Bot Response: " + botResponse)            
+        }
+
+        async function talkWithBot(userMessage) {
+            botResponse = await talk(userMessage);
+            return botResponse;
+        }
+
+    </script>
 
 </body>
 

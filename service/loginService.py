@@ -20,8 +20,8 @@ def login(username,password):
 
 def logout():
     try:
-        session.pop('userName', None)
         session.pop('userId', None)
+        session.pop('userName', None)        
         session.pop('userRole', None)  
         response = {"status": "success"}
     except:
