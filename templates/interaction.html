@@ -98,10 +98,9 @@
 
     <script type="text/javascript">
 
-        window.onload = async function () {
-            console.log("Talking with Bot...")
-            botResponse = await talkWithBot("Oi");
-            alert("Bot Response: " + botResponse)            
+        window.onload = async function () {            
+            botResponse = await talkWithBot("Oi");            
+            console.log(botResponse);
         }
 
         async function talkWithBot(userMessage) {

@@ -1,5 +1,5 @@
 from flask import session
-import repository.users as users
+import repository.userRepository as users
 
 def login(username,password):
     user = users.find("name", username)

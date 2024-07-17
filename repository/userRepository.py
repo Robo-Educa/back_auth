@@ -4,19 +4,19 @@ import repository.db_resource as dbr
 collection = "users"                # Nome da coleção de documentos.
 db = dbr.firestore_resource()       # Instância de conexão com banco NoSQL
 
-def get_all() :
+def get_all():
     docs_ref = db.collection(collection).order_by("name")
     docs = docs_ref.stream()    
     return docs
 
-def find(field: str, value: str) -> list | None:
+def find(field: str, value: str):
     response = None
     doc = db.collection(collection).where(field_path=field, op_string="==", value=value).get()
     if doc:
         response = doc        
     return response
 
-def delete(field: str, value: str) -> str:
+def delete(field: str, value: str):
     try:        
         doc = find(field,value)
         if doc:
@@ -26,7 +26,7 @@ def delete(field: str, value: str) -> str:
         response = e
     return response
 
-def update(field: str, value: str, new_doc: dict) -> str:
+def update(field: str, value: str, new_doc: dict):
     try:        
         doc = find(field, value)
         if doc:

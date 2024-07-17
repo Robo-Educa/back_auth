@@ -1,5 +1,7 @@
+# Dependências
 from main import app
-from flask import render_template, request, session, redirect, url_for
+from flask import render_template, request, session, redirect, url_for, make_response, jsonify
+# Serviços
 import service.loginService as loginService
 import service.talkService as talkService
 
@@ -49,18 +51,23 @@ def logout():
 # Página de interação entre usuário e bot
 @app.route('/interaction')
 def interaction():
-    if not session.get('userId'):
-        return redirect(url_for('login'))    
-            
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return redirect(url_for('login'))    
+    
     return render_template('interaction.html')   
 
 # Troca de mensagens entre usuário e bot
 @app.route('/talk', methods=['POST']) 
-def talk():
-    if not session.get('userId'):
-        return redirect(url_for('login'))    
+def talk():   
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return make_response(jsonify({"error": "Não autorizado"}), 401)
 
+    # obtem dados da requisição - mensagem do usuário
     data = request.get_json()
     userMessage = data.get('message')    
+
+    # Envia mensagem para Bot e aguarda respectiva resposta
     botResponse = talkService.talk(userMessage)
+    
+    # retorna ao Front com resposta do Bot
     return botResponse
