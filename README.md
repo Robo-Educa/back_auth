@@ -4,8 +4,9 @@
 <hr>
 
 ## Servidor Python
-
-Servidor básico em python. 
+* Para testar a aplicação acesse : https://pyserver-xd3gd6y2aa-uw.a.run.app
+* Usuário: dev
+* Senha: 1
 
 ### Tecnologias utilizadas
 
