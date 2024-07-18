@@ -23,28 +23,24 @@ function goToPage(page) {
     window.location.href = page;
 }
 
-function interactionMessage(message) {
-    interactionMsg = message;
-    document.getElementById("divInteractionMsg").innerHTML = interactionMsg;
+function showMessage(message) {
+    document.getElementById("messages").value = message
 }
 
-function interactionImage(status) {
-    switch (status) {
-        case 'thinking':
-            document.getElementById("divInteractionImage").style.display = "none";
-            document.getElementById("divSpinner").style.display = "block";
-            break;
+function showImage(status) {
+    switch (status) {        
         case 'talking':
-            document.getElementById("divSpinner").style.display = "none";
             document.getElementById("interactionImage").src = "/static/images/wavesOn.gif";
-            document.getElementById("divInteractionImage").style.display = "block";            
             break;            
-
         default:
             break;
     }
 }
 
-function displayMic() {
-    document.getElementById("divMic").style.display = "block";
+function hideElement(element) {
+    document.getElementById(element).style.display = "none";
+}
+
+function showElement(element) {
+    document.getElementById(element).style.display = "block";
 }
