@@ -32,10 +32,11 @@ function speak(message) {
     const utterThis = new SpeechSynthesisUtterance(message);
 
     utterThis.onstart = function () {        
-        showImage('speaking');        
+        showElement("divSpinnerWaves");             // Exibe Spinner - ondas sonoras
     };
     utterThis.onend = function () {
-        hideElement('divInteractionImage');
+        hideElement('divSpinnerWaves');             // Oculta Spinner - ondas sonoras
+        showElement("divSpinnerHeart");         // Spinner indicando Coração batendo
     };
 
     utterThis.pitch = 2;

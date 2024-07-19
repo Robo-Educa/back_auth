@@ -23,9 +23,8 @@ function goToPage(page) {
     window.location.href = page;
 }
 
-function showMessage(message) {
-    showElement("divInteractionMsg")
-    document.getElementById("messages").value = message
+function debugMsg(message) {    
+    console.log(message);
 }
 
 function showImage(status) {
