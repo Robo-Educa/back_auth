@@ -71,3 +71,8 @@ def talk():
     
     # retorna ao Front com resposta do Bot
     return botResponse
+
+# Teste SpeachRecognition
+@app.route('/recognition')
+def recognition():
+    return render_template('recognition.html')

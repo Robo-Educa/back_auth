@@ -25,3 +25,28 @@ async function talk(userMessage) {
 
     return botMessage;
 }
+
+function speak(message) {
+    message = removerEmojis(message);
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(message);
+
+    utterThis.onstart = function () {        
+        showImage('speaking');        
+    };
+    utterThis.onend = function () {
+        hideElement('divInteractionImage');
+    };
+
+    utterThis.pitch = 2;
+    utterThis.rate = 2;
+    synth.speak(utterThis);
+}
+
+function removerEmojis(texto) {
+    return texto
+      .replace(/\p{Emoji}/gu, '') // Remove emojis
+      .replace(/\s+/g, ' ') // Remove espaços em branco extras
+      .trim(); // Remove espaços em branco no início e no fim
+  }
+  

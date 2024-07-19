@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech Recognition</title>
+  <style>
+    #transcriptions {
+      border: 1px solid #ddd;
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Speech Recognition</h1>
+  <div id="transcriptions"></div>
+
+  <button type="button" onclick="start();">Iniciar </button>
+
+  <script type="text/javascript">
+
+      const synth = window.speechSynthesis;
+      var recognitionAction;
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Recurso de reconhecimento de fala não disponível neste Browser. Verifique permissões ou utilize outro navegador");
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;      // Reconhecimento contínuo em loop
+      recognition.interimResults = false; // resultados parciais
+      recognition.lang = "pt-BR";
+
+      // Função para adicionar uma nova transcrição à div
+      function addTranscription(text) {
+        const newParagraph = document.createElement('p');
+        newParagraph.textContent = text;
+        document.getElementById('transcriptions').appendChild(newParagraph);
+        document.getElementById('transcriptions').scrollTop = document.getElementById('transcriptions').scrollHeight; // Rola para o fim da div
+      }
+
+      // Evento que é acionado quando o reconhecimento de fala captura um resultado
+      recognition.onresult = event => {
+        console.log("on result")
+        const transcript = event.results[event.resultIndex][0].transcript;
+        addTranscription(transcript);
+      };
+
+      recognition.onstart = () => {
+        console.log("Speech recognition started");
+      };
+
+      recognition.onend = () => {
+        console.log("Speech recognition ended. ");
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Erro no reconhecimento de fala:', event.error);
+      };
+
+      function start(params) {        
+        recognition.start();
+      }
+
+  </script>
+</body>
+
+</html>

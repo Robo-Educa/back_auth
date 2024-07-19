@@ -46,8 +46,11 @@
         }
 
         #divSpinner {
-            text-align: center;
+            display: flex;
+            justify-content: center;
             align-items: center;
+            width: 100%; /* Garante que o div ocupe a largura total disponível */
+            height: 100%; /* Garante que o div ocupe a altura total disponível */
         }
 
         .clearfix {
@@ -113,7 +116,7 @@
     </div>
 
     <div id="divSpinner" style="display: none;">
-        <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i>
+        <i class="fa fa-4x fa-spinner fa-spin fa-fw"></i>
     </div>
 
     <div id="divInteractionImage">            
@@ -139,12 +142,9 @@
 
             botResponse = await talkWithBot("Oi");      // Inicia conversa com Bot com um "oi"
 
-            hideElement("divSpinner");
-            showElement("divInteractionMsg");    
-            showMessage(botResponse);                   // Mostra na tela a resposta do Bot
-
-            //showImage('talking');                     // Exibe gif de ondas sonoras representando fala
-            //showElement('divMic');                    // Exibe botão com microfone            
+            hideElement("divSpinner");            
+            showMessage(botResponse);
+            speak(botResponse);            
         }
 
         async function talkWithBot(userMessage) {            

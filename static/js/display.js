@@ -24,12 +24,14 @@ function goToPage(page) {
 }
 
 function showMessage(message) {
+    showElement("divInteractionMsg")
     document.getElementById("messages").value = message
 }
 
 function showImage(status) {
+    showElement("divInteractionImage")
     switch (status) {        
-        case 'talking':
+        case 'speaking':
             document.getElementById("interactionImage").src = "/static/images/wavesOn.gif";
             break;            
         default:
