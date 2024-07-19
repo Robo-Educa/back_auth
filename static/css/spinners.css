@@ -1,13 +1,13 @@
 .lds-ripple {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 160px; /* 80px * 2 */
+    height: 160px; /* 80px * 2 */
 }
 
 .lds-ripple div {
     position: absolute;
-    border: 4px solid currentColor;
+    border: 8px solid currentColor; /* 4px * 2 */
     opacity: 1;
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -19,42 +19,36 @@
 
 @keyframes lds-ripple {
     0% {
-        top: 36px;
-        left: 36px;
-        width: 8px;
-        height: 8px;
+        top: 72px; /* 36px * 2 */
+        left: 72px; /* 36px * 2 */
+        width: 16px; /* 8px * 2 */
+        height: 16px; /* 8px * 2 */
         opacity: 0;
     }
 
     4.9% {
-        top: 36px;
-        left: 36px;
-        width: 8px;
-        height: 8px;
+        top: 72px;
+        left: 72px;
+        width: 16px;
+        height: 16px;
         opacity: 0;
     }
 
     5% {
-        top: 36px;
-        left: 36px;
-        width: 8px;
-        height: 8px;
+        top: 72px;
+        left: 72px;
+        width: 16px;
+        height: 16px;
         opacity: 1;
     }
 
     100% {
         top: 0;
         left: 0;
-        width: 80px;
-        height: 80px;
+        width: 160px;
+        height: 160px;
         opacity: 0;
     }
-}
-
-
-.lds-circle,
-.lds-circle div {
-    box-sizing: border-box;
 }
 
 .lds-circle {
@@ -62,20 +56,18 @@
     transform: translateZ(1px);
 }
 
-.lds-circle>div {
+.lds-circle > div {
     display: inline-block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
+    width: 128px; /* 64px * 2 */
+    height: 128px; /* 64px * 2 */
+    margin: 16px; /* 8px * 2 */
     background: currentColor;
     border-radius: 50%;
     animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
 @keyframes lds-circle {
-
-    0%,
-    100% {
+    0%, 100% {
         animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
     }
 
@@ -93,67 +85,55 @@
     }
 }
 
-
-.lds-facebook,
-.lds-facebook div {
-    box-sizing: border-box;
-}
-
 .lds-facebook {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 160px; /* 80px * 2 */
+    height: 160px; /* 80px * 2 */
 }
 
 .lds-facebook div {
     display: inline-block;
     position: absolute;
-    left: 8px;
-    width: 16px;
+    left: 16px; /* 8px * 2 */
+    width: 32px; /* 16px * 2 */
     background: currentColor;
     animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 
 .lds-facebook div:nth-child(1) {
-    left: 8px;
+    left: 16px;
     animation-delay: -0.24s;
 }
 
 .lds-facebook div:nth-child(2) {
-    left: 32px;
+    left: 64px; /* 32px * 2 */
     animation-delay: -0.12s;
 }
 
 .lds-facebook div:nth-child(3) {
-    left: 56px;
+    left: 112px; /* 56px * 2 */
     animation-delay: 0s;
 }
 
 @keyframes lds-facebook {
     0% {
-        top: 8px;
-        height: 64px;
+        top: 16px; /* 8px * 2 */
+        height: 128px; /* 64px * 2 */
     }
 
-    50%,
-    100% {
-        top: 24px;
-        height: 32px;
+    50%, 100% {
+        top: 48px; /* 24px * 2 */
+        height: 64px; /* 32px * 2 */
     }
 }
 
-
-.lds-hourglass,
-.lds-hourglass:after {
-    box-sizing: border-box;
-}
 
 .lds-hourglass {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 160px; /* 80px * 2 */
+    height: 160px; /* 80px * 2 */
 }
 
 .lds-hourglass:after {
@@ -162,9 +142,9 @@
     border-radius: 50%;
     width: 0;
     height: 0;
-    margin: 8px;
+    margin: 16px; /* 8px * 2 */
     box-sizing: border-box;
-    border: 32px solid currentColor;
+    border: 64px solid currentColor; /* 32px * 2 */
     border-color: currentColor transparent currentColor transparent;
     animation: lds-hourglass 1.2s infinite;
 }
@@ -186,28 +166,21 @@
 }
 
 
-.lds-heart,
-.lds-heart div,
-.lds-heart div:after,
-.lds-heart div:before {
-    box-sizing: border-box;
-}
-
 .lds-heart {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 160px; /* 80px * 2 */
+    height: 160px; /* 80px * 2 */
     transform: rotate(45deg);
-    transform-origin: 40px 40px;
+    transform-origin: 80px 80px; /* 40px * 2 */
 }
 
 .lds-heart div {
-    top: 28px;
-    left: 28px;
+    top: 56px; /* 28px * 2 */
+    left: 56px; /* 28px * 2 */
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 64px; /* 32px * 2 */
+    height: 64px; /* 32px * 2 */
     background: currentColor;
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -217,18 +190,18 @@
     content: " ";
     position: absolute;
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 64px; /* 32px * 2 */
+    height: 64px; /* 32px * 2 */
     background: currentColor;
 }
 
 .lds-heart div:before {
-    left: -24px;
+    left: -48px; /* -24px * 2 */
     border-radius: 50% 0 0 50%;
 }
 
 .lds-heart div:after {
-    top: -24px;
+    top: -48px; /* -24px * 2 */
     border-radius: 50% 50% 0 0;
 }
 
