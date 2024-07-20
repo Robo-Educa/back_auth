@@ -59,7 +59,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple" />
-
     <link rel="stylesheet" type="text/css" href="/static/css/spinners.css">
 
     <script type="text/javascript" src="/static/js/login.js"></script>
@@ -105,25 +104,15 @@
         <img id="interactionImage"><br>
     </div>
 
+    <div id="divMessage" style="display: none;"></div>
+
     <script type="text/javascript">
 
-        async function start() {
-
-            openFullscreen();
+        function start() {
             hideElement("divStart");
-
-            showElement("divSpinnerHourglass");         // Spinner indicando processo em andamento
-            botResponse = await talkWithBot("Oi");      // Inicia conversa com Bot com um "oi" e aguarda resposta            
-            debugMsg(botResponse);                      // Debug da mensagem no console.
-            hideElement("divSpinnerHourglass");         // Oculta Spinner
-
-            speak(botResponse);                         // Fala a mensagem             
-        }
-
-        async function talkWithBot(userMessage) {
-            botResponse = await talk(userMessage);
-            return botResponse;
-        }
+            openFullscreen();            
+            talk("oi");                                 // Inicia conversa com Bot com um "oi"                        
+        }        
 
     </script>
 

@@ -45,3 +45,20 @@ function hideElement(element) {
 function showElement(element) {
     document.getElementById(element).style.display = "block";
 }
+
+function hideAllExceptClose() {
+    const allElements = document.body.children; // Get all direct children of <body>
+
+    for (let i = 0; i < allElements.length; i++) {
+      const element = allElements[i];
+      if (element.id !== "divClose") { // Check if it's NOT the divClose element
+        element.style.display = "none"; // Hide the element
+      }
+    }
+}
+
+function showMessage(message) {
+    var messageDiv = document.getElementById("divMessage");
+    messageDiv.textContent = message;
+    messageDiv.style.display = "block";
+}
