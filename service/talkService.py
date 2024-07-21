@@ -3,11 +3,12 @@ from flask import session
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
-load_dotenv()  
+import time
 # Serviços
 import repository.messageHistoryRepository as messageHistory
 
 #region - Variáveis de ambiente
+load_dotenv()  
 my_api_key = os.environ.get("API_KEY")                        # Gemini - API_KEY
 system_instruction = os.environ.get("SYSTEM_INSTRUCTIONS")    # Gemini - Instruções do Sistema / Informa as caracteristicas do Assistente.
 ai_model = os.environ.get("GEMINI_MODEL")                     # Modelo de IA Google Gemini
@@ -50,11 +51,22 @@ model = genai.GenerativeModel(model_name=ai_model,
 def format_messages_for_gemini(messages):
     messages_array = []
     
+    # Obtem histórico de mensagens
     for message in messages:
-        message_dict = message.to_dict()        
+        message_dict = message.to_dict()    
+        message_timestamp = int(message_dict["timestamp"]) 
+
+        now = int(time.time())
+        diff_seconds = now - message_timestamp
+        diff_minutes = diff_seconds // 60  
+
+        # Se diferença for maior que 5min, encerra busca no histórico. Só importa ultimos 5 minutos de conversa
+        if diff_minutes > 5:
+          break  
+
         formatted_message = {
             "role": message_dict["role"],
-            "parts": message_dict["parts"]
+            "parts": message_dict["parts"]            
         }
         messages_array.append(formatted_message)
 

@@ -8,6 +8,7 @@ recognition.continuous = true;      // Reconhecimento contínuo em loop
 recognition.interimResults = false; // resultados parciais
 
 var speakStatus=false;  // Speaking  on=true  off=false
+var timestampParam;
 
 // =======================================
 // PENSAR
@@ -67,7 +68,8 @@ function speak(message) {
         speakStatus=false;
         hideAllExceptClose();                   // Oculta elementos que estiverem visiveis na tela
         showElement("divSpinnerRipple");        // Exibe Spinner simulando ondulaçao de escuta 
-        recognition.start();                    // Inicia o reconhecimento de voz        
+        recognition.start();                    // Inicia o reconhecimento de voz 
+        timestampParam = Date.now();       
     };
 
     recognition.stop();                         // Ao iniciar a fala (reprodução do audio) Interrompe o reconhecimento de voz
@@ -90,22 +92,28 @@ function removerEmojis(texto) {
 
 // Este evento é acionado quando o reconhecimento de voz captura um resultado
 recognition.onresult = event => {    
-    const transcript = event.results[event.resultIndex][0].transcript;
-    console.log("Transcrição.on result: " + transcript);
+    const transcript = event.results[event.resultIndex][0].transcript;    
     talk(transcript);           // Envia transcrição do audio falado pelo usuário para o backend processar junto à Inteligência Artificial e dar uma respectiva resposta
 };
 
 recognition.onstart = () => {    
-    showMessage('reconhecimento de voz iniciado.');
+    //showMessage('reconhecimento de voz iniciado.');
 };
 
 recognition.onend = () => {
     if (speakStatus == false) {     // Se não estiver falando - reproduzindo audio
-        recognition.start(); // Inicia o reconhecimento de voz
-    }    
-    showMessage("reconhecimento de voz finalizado. ");    
+        timestampAtual = Date.now();
+        var diferenca = timestampAtual - timestampParam;
+        var minutosPassados = diferenca / (1000 * 60);
+        if (minutosPassados < 1) {
+            recognition.start(); // Inicia o reconhecimento de voz
+        } else {
+            hideAllExceptClose();
+            showElement("divPauseStart");
+        }
+    }        
 };
 
 recognition.onerror = (event) => {
-    showMessage('Erro:', event.error);
+    //showMessage('Erro:', event.error);
 };
