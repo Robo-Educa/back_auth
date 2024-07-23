@@ -47,7 +47,7 @@ model = genai.GenerativeModel(model_name=ai_model,
         safety_settings=safety_settings)
 #endregion - Modelo Google Generative AI
 
-# retorna histórico com formatação default para Google Gemini AI
+# retorna histórico com formatação default para Google Gemini API
 def format_messages_for_gemini(messages):
     messages_array = []
     
@@ -60,8 +60,8 @@ def format_messages_for_gemini(messages):
         diff_seconds = now - message_timestamp
         diff_minutes = diff_seconds // 60  
 
-        # Se diferença for maior que 5min, encerra busca no histórico. Só importa ultimos 5 minutos de conversa
-        if diff_minutes > 5:
+        # Se diferença for maior que 1min, encerra busca no histórico. Só importa ultimo minuto de conversa
+        if diff_minutes >= 1:
           break  
 
         formatted_message = {
@@ -72,6 +72,7 @@ def format_messages_for_gemini(messages):
 
     return messages_array
 
+# Interação com a Google Gemini API
 def talk(userMessage):
     # Obtem ID do usuário logado
     user_id = session["userId"]

@@ -35,9 +35,11 @@ def deviceNotFound():
 def login():    
     if request.method == 'POST':                        
         data = request.get_json()
+        ip_address = request.remote_addr
         username = data.get('username')
         password = data.get('password')                      
-        response = loginService.login(username, password)
+        usertype = data.get('usertype')                      
+        response = loginService.login(username, password, usertype, ip_address)
         return response        
     else:        
         return render_template('login.html')

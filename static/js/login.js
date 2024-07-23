@@ -1,23 +1,21 @@
-async function login() {    
+async function login(usertype) {    
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;    
+
+    displayStartLogin();
     
-    document.getElementById("btLogin").disabled = true;
-    document.getElementById("btLogin").style.cursor = "progress";
-
     await fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: username, password: password })
+        body: JSON.stringify({ username: username, password: password, usertype: usertype })
     })
     .then(response => response.json())
     .then(data => {
 
-        document.getElementById("btLogin").disabled = false;
-        document.getElementById("btLogin").style.cursor = "default";
+        displayStopLogin();
         
         switch (data.status) {
             case 'success':
@@ -31,6 +29,9 @@ async function login() {
                 alert("Senha incorreta");
                 document.getElementById("password").focus();
                 break;
+            case 'errorGuest':
+                alert("Não foi possível criar usuário temporário. Tente novamente!");                
+                break;                
             default:
                 break;
         }        
@@ -38,7 +39,11 @@ async function login() {
     
 }
 
-async function logout() {       
+async function logout() {   
+    
+    synth.cancel();     // Interrompe eventual reprodução de audio em andamento
+
+    // Inicia processo de LogOut no backEnd
     await fetch('/logout')
         .then(response => response.json())
         .then(data => {

@@ -1,4 +1,7 @@
+import time
+import requests
 import repository.db_resource as dbr
+from datetime import datetime
 
 # Main
 collection = "users"                # Nome da coleção de documentos.
@@ -34,4 +37,25 @@ def update(field: str, value: str, new_doc: dict):
             response = "success"
     except Exception as e:
         response = e
+    return response
+
+def store_guest(ip_address):
+    try:                  
+        timestamp = int(time.time())             
+        date_hour = datetime.fromtimestamp(timestamp)        
+        date_formated = date_hour.strftime("%d_%m_%Y_%H_%M")
+
+        guestId = f"guest_{timestamp}"
+        guestName = f"Convidado_IP_{ip_address}_DATA_{date_formated}"
+
+        doc_ref = db.collection(collection).document()
+        doc_ref.set({
+                "id": guestId,
+                "name": guestName,                
+                "role": 'Guest'
+            })
+        response = guestId
+    except Exception as e:
+        print (f"StoreGuest Error: Details: {e}")
+        response = "error"
     return response

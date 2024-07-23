@@ -100,8 +100,9 @@ recognition.onstart = () => {
     //showMessage('reconhecimento de voz iniciado.');
 };
 
+// Verifica se usuário não estiver falando (reproduzindo audio). Após 1 minuto de inatividade, interrrompe reconhecimento e exibe botão de pausa
 recognition.onend = () => {
-    if (speakStatus == false) {     // Se não estiver falando - reproduzindo audio
+    if (speakStatus == false) {     
         timestampAtual = Date.now();
         var diferenca = timestampAtual - timestampParam;
         var minutosPassados = diferenca / (1000 * 60);

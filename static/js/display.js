@@ -62,3 +62,17 @@ function showMessage(message) {
     messageDiv.textContent = message;
     messageDiv.style.display = "block";
 }
+
+function displayStartLogin() {
+    document.getElementById("btLogin").disabled = true;
+    document.getElementById("btLoginVisitante").disabled = true;
+    document.getElementById("btLogin").style.cursor = "progress";
+    document.getElementById("btLoginVisitante").style.cursor = "progress";
+}
+
+function displayStopLogin() {
+    document.getElementById("btLogin").disabled = false;
+    document.getElementById("btLoginVisitante").disabled = false;
+    document.getElementById("btLogin").style.cursor = "default";
+    document.getElementById("btLoginVisitante").style.cursor = "default";
+}
