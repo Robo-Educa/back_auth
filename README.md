@@ -8,11 +8,11 @@
 
 <hr>
 
-Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora sobre dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor 👨‍🏫 que as incentiva a montarem seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
+Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora sobre dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor Carlos 👨‍🏫 que os incentiva a montarem seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
 
 É neste contexto que surge o web aplicativo Robô Educa, que acessível através de qualquer smartphone 📱, se torna o "cérebro" do robô 🧠, interagindo com a criança através de  mensagens de áudio 🗣️, tornando-o acessível inclusive para pessoas com deficiência visual 👀. A montagem do robô 🤖 e a interação com o aplicativo estimulam a coordenação motora 🖐️ e a criatividade ✨, expondo a criança a conceitos tecnológicos de forma lúdica e inclusiva.
 
-Esta "mágica" se torna possível a partir do uso da Google GEMINI API, que permite ao Robô Educa entender e responder às perguntas da criança sobre robótica 🤖, explicar conceitos complexos 🤯 e realizar quizzes gamificados 🎉. Essa tecnologia, hospedada na plataforma Google, transforma o aprendizado em uma conversa natural e divertida 😄, abrindo novas perspectivas para o futuro das crianças 🚀.
+A "mágica" realizado pelo aplicativo só é possível por conta do uso da **Google GEMINI API**, que permite ao Robô Educa entender e responder às perguntas da criança sobre robótica 🤖, explicar conceitos complexos 🤯 e realizar quizzes gamificados 🎉. Essa tecnologia, hospedada na plataforma Google, transforma o aprendizado em uma conversa natural e divertida 😄, abrindo novas perspectivas para o futuro das crianças 🚀.
 
 <hr>
 
@@ -32,7 +32,7 @@ Esta "mágica" se torna possível a partir do uso da Google GEMINI API, que perm
 
 A Inteligência artificial está cada vez mais presente em nossas vidas, fazendo-se necessário estimular o maior número de pessoas a darem os primeiros passos no entendimento desta tecnologia permitindo assim que as mesmas se tornem não somente usuários mais principalmente protagonistas na criação dos novos recursos desta tecnologia no futuro.
 
-Foi a partir deste pensamento que no ano de 2018 surgiu o projeto Robô Educa. Uma plataforma acessível para Ensino de Programação e Inteligência Artificial em que a criança dá os primeiros passos no universo destas tecnologias montando o seu próprio robô. Nesta época o robô era feito de garrafas pet e alguns componentes eletrônicos como Leds, resistores, e baterias.
+Foi a partir deste pensamento que no ano de 2018 surgiu o projeto Robô Educa. Uma plataforma inclusiva para Ensino de Programação e Inteligência Artificial em que a criança dá os primeiros passos no universo destas tecnologias montando o seu próprio robô. Nesta época o robô era feito de garrafas pet e alguns componentes eletrônicos como Leds, resistores, e baterias.
 
 Mas somente no ano de 2024, com o uso da GEMINI API, que o robô passou a ter um "cérebro" capaz de responder de forma inteligente e rápida, tornando a iteração com a criança fluida e encantadora!
 
@@ -77,8 +77,10 @@ $ python main.py
 ```
 http://localhost:5000
 ```
+<hr>
 
 ### Como realizar deploy no ambiente de nuvem da Google (Cloud Run)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 * No console da Google Cloud Platform, crie um Projeto 
 * Certifique-se de ter instalado em seu PC Windows a CLI gcloud (Google Cloud SDK Shell) disponível em : https://cloud.google.com/sdk/docs/install?hl=pt-br
 * Em um terminal do Google Cloud SDK Shell, vá para a pasta em que se encontra o seu projeto e inicialize sua conexão informando o seu email, projeto e região default para hospedagem do seu App:
@@ -113,6 +115,8 @@ $ gcloud run deploy --source .
         * Atenção para variável PATH_CREDENTIAL_FIRESTORE que deverá conter o path do volume recém criado. Ex: /config/credencial.json
         * Atenção para variável API_KEY que deverá conter uma chave válida que pode ser obtida em : https://aistudio.google.com
 * Atenção: Cuidado com o arquivo JSON contendo a credencial de acesso ao banco de dados e também com sua API_KEY Gemini. Nunca os exponha publicamente, utilize secrets ou outros recusos de seguranças recomendados pela plataforma Google Cloud.
+
+<hr>
 
 ## Contribuições
 
