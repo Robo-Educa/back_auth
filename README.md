@@ -4,27 +4,28 @@
 
 <hr>
 
-### 🤓 Aprenda a programar construindo seu próprio robô.
+## 🤓 Aprenda a programar construindo seu próprio robô.
 
 <hr>
 
-Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora sobre dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor Carlos 👨‍🏫 que os incentiva a montarem seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
+Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora de dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor Carlos Sales 👨‍🏫 que os incentiva a montar seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
 
-É neste contexto que surge o web aplicativo Robô Educa, que acessível através de qualquer smartphone 📱, se torna o "cérebro" do robô 🧠, interagindo com a criança através de  mensagens de áudio 🗣️, tornando-o acessível inclusive para pessoas com deficiência visual 👀. A montagem do robô 🤖 e a interação com o aplicativo estimulam a coordenação motora 🖐️ e a criatividade ✨, expondo a criança a conceitos tecnológicos de forma lúdica e inclusiva.
+É neste contexto que surge o Web Aplicativo Robô Educa que acessível a partir de qualquer smartphone 📱 se torna o "cérebro" do robô 🧠 interagindo com a criança através de  mensagens de áudio 🗣️ tornando-o acessível inclusive para pessoas com deficiência visual 👀. A montagem do robô e a interação com o aplicativo estimulam a coordenação motora 🖐️ e a criatividade ✨ ensinando a criança conceitos tecnológicos de forma lúdica e inclusiva.
 
-A "mágica" realizado pelo aplicativo só é possível por conta do uso da **Google GEMINI API**, que permite ao Robô Educa entender e responder às perguntas da criança sobre robótica 🤖, explicar conceitos complexos 🤯 e realizar quizzes gamificados 🎉. Essa tecnologia, hospedada na plataforma Google, transforma o aprendizado em uma conversa natural e divertida 😄, abrindo novas perspectivas para o futuro das crianças 🚀.
+E toda a mágica realizado pelo aplicativo só é possível por conta do uso da **Google GEMINI API** 🤖 que permite ao Robô Educa entender e responder às perguntas da criança, explicar conceitos complexos 🤯 e realizar quizzes gamificados 🎉. Essa tecnologia disponível na nuvem da Google transforma o aprendizado em uma conversa natural e divertida 😄 abrindo novas perspectivas para o futuro destas crianças 🚀.
 
 <hr>
 
-### Link para testar o aplicativo:
+## 🤖 Como testar o aplicativo:
 * Acesse : https://robo-educa-gemini-server-xd3gd6y2aa-uw.a.run.app/
+* Clique em Iniciar;
 * Autorize o uso do Microfone;
-* Clique em : ENTRAR COMO VISITANTE;
+* Clique em: ENTRAR COMO VISITANTE;
 * Ouça as perguntas e responda corretamente para acumular pontos.
 
 <hr>
 
-### Histórico:
+## 📆 Histórico
 
 <div align="center">
 <img src="static/images/robopet.jpg" alt="Logo">
@@ -32,31 +33,48 @@ A "mágica" realizado pelo aplicativo só é possível por conta do uso da **Goo
 
 A Inteligência artificial está cada vez mais presente em nossas vidas, fazendo-se necessário estimular o maior número de pessoas a darem os primeiros passos no entendimento desta tecnologia permitindo assim que as mesmas se tornem não somente usuários mais principalmente protagonistas na criação dos novos recursos desta tecnologia no futuro.
 
-Foi a partir deste pensamento que no ano de 2018 surgiu o projeto Robô Educa. Uma plataforma inclusiva para Ensino de Programação e Inteligência Artificial em que a criança dá os primeiros passos no universo destas tecnologias montando o seu próprio robô. Nesta época o robô era feito de garrafas pet e alguns componentes eletrônicos como Leds, resistores, e baterias.
+Foi a partir deste pensamento que no ano de 2018 surgiu o projeto Robô Educa. Uma plataforma inclusiva para Ensino de Programação e Inteligência Artificial em que a criança dá os primeiros passos no universo destas tecnologias montando o seu próprio robô. Nesta época o robô era feito de garrafas PET e alguns componentes eletrônicos como leds, resistores, e baterias.
 
-Mas somente no ano de 2024, com o uso da GEMINI API, que o robô passou a ter um "cérebro" capaz de responder de forma inteligente e rápida, tornando a iteração com a criança fluida e encantadora!
+Mas foi somente no ano de 2024 com o advento das IA Generativas e da Google GEMINI API, que o robô passou a ter um "cérebro" capaz de responder de forma **inteligente e rápida**, tornando a interação com a criança **flúida e encantadora** 😄!
 
-O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvimento de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video. 
-
-Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão realizadas em comunidades carentes na cidade de Salvador, Bahia - Brasil.
+O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video. 
 
 <hr>
 
-### Tecnologias utilizadas neste aplicativo
+<div style="display: flex;">
+<img src="static/images/image1.jpg" alt="Imagem 1" style="width: 25%; margin-right: 5px;">
+<img src="static/images/image2.jpg" alt="Imagem 2" style="width: 25%; margin-right: 5px;">
+<img src="static/images/image3.jpg" alt="Imagem 3" style="width: 25%; margin-right: 5px;">
+<img src="static/images/image4.jpg" alt="Imagem 4" style="width: 25%;">
+</div>
 
-- ![Pyton](https://img.shields.io/badge/python-v3-green)
-- ![HTML](https://img.shields.io/badge/HTML-5-orange)
-- ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-- ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
-- ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
+## 💪 Impacto
+
+Utilizando apenas alguns poucos Leds, resistores e baterias, conseguimos impactar centenas de crianças em diversas comunidades da nossa cidade. 
+
+Já a partir do uso da inteligência artificial generativa e da nuvem, surgem novas possibilidades de expansão das habilidades cognitivas de nosso robô. Com a qual esperamos que possamos alcançar um número ainda maior de crianças em todo o mundo. Tornando-o assim ainda mais efetivo no seu propósito.
+
+Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão realizadas em comunidades carentes na cidade de Salvador, Bahia - Brasil.
+
+💪 E você? Gostou? Então faça sua parte e colabore com esta iniciativa para que possamos ampliar ainda mais o nosso impacto.
+
+<hr>
+
+## 💻 Tecnologias utilizadas neste aplicativo
 
 <div align="center">
 <img src="static/images/gemini.png" alt="Logo Gemini API">
 </div>
 
+- ![Pyton](https://img.shields.io/badge/python-v3-green)
+- ![HTML](https://img.shields.io/badge/HTML-5-orange)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+- ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
+- ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
+
 <hr>
 
-### Como executar este aplicativo em seu PC Windows
+## ✍️ Como executar este aplicativo em seu PC Windows
 
 1. Clone o repositório:
 ```
@@ -79,10 +97,10 @@ http://localhost:5000
 ```
 <hr>
 
-### Como realizar deploy no ambiente de nuvem da Google (Cloud Run)
+## ☁️ Como realizar deploy no ambiente de nuvem da Google (Cloud Run)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 * No console da Google Cloud Platform, crie um Projeto 
-* Certifique-se de ter instalado em seu PC Windows a CLI gcloud (Google Cloud SDK Shell) disponível em : https://cloud.google.com/sdk/docs/install?hl=pt-br
+* Certifique-se de ter instalado em seu PC Windows a CLI gcloud (Google Cloud SDK Shell)
 * Em um terminal do Google Cloud SDK Shell, vá para a pasta em que se encontra o seu projeto e inicialize sua conexão informando o seu email, projeto e região default para hospedagem do seu App:
 ```
 $ cd\[path do projeto]
@@ -118,11 +136,25 @@ $ gcloud run deploy --source .
 
 <hr>
 
-## Contribuições
+<hr>
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request.
-
-## Licença
+## 📄 Licença
 
 Este projeto está licenciado sob a [Apache 2.0 License](LICENSE). Observe também os Termos de Serviço.
+
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou colaborar de qualquer outra forma.
+
+* Contatos/WhatsApp: +55 (71) 9.9341-6896 
+* E-mail: roboeduca.net@gmail.com
+
+<hr>
+
+<div style="display: flex;">
+<img src="static/images/ods1.jpg" alt="Ods 4" style="width: 33.33%; margin-right: 5px;">
+<img src="static/images/ods2.jpg" alt="ODS ONU" style="width: 33.33%; margin-right: 5px;">
+<img src="static/images/ods3.jpg" alt="Ods 10" style="width: 33.33%;">
+</div>
 
