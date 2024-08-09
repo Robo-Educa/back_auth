@@ -42,17 +42,17 @@ O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPP
 <hr>
 
 <div style="display: flex;">
-<img src="static/images/image1.jpg" alt="Imagem 1" style="width: 25%; margin-right: 5px;">
-<img src="static/images/image2.jpg" alt="Imagem 2" style="width: 25%; margin-right: 5px;">
-<img src="static/images/image3.jpg" alt="Imagem 3" style="width: 25%; margin-right: 5px;">
-<img src="static/images/image4.jpg" alt="Imagem 4" style="width: 25%;">
+<img src="static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 5px;">
+<img src="static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 5px;">
+<img src="static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 5px;">
+<img src="static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
 ## 💪 Impacto
 
 Utilizando apenas alguns poucos Leds, resistores e baterias, conseguimos impactar centenas de crianças em diversas comunidades da nossa cidade. 
 
-Já a partir do uso da inteligência artificial generativa e da nuvem, surgem novas possibilidades de expansão das habilidades cognitivas de nosso robô. Com a qual esperamos que possamos alcançar um número ainda maior de crianças em todo o mundo. Tornando-o assim ainda mais efetivo no seu propósito.
+Já a partir do uso da inteligência artificial generativa e da nuvem, surgem novas possibilidades de expansão das habilidades cognitivas de nosso robô. Com a qual esperamos  alcançar um número ainda maior de crianças **em todo o mundo**!
 
 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão realizadas em comunidades carentes na cidade de Salvador, Bahia - Brasil.
 
@@ -136,12 +136,9 @@ $ gcloud run deploy --source .
 
 <hr>
 
-<hr>
-
 ## 📄 Licença
 
 Este projeto está licenciado sob a [Apache 2.0 License](LICENSE). Observe também os Termos de Serviço.
-
 
 ## 🤝 Contribuições
 
@@ -153,8 +150,8 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request 
 <hr>
 
 <div style="display: flex;">
-<img src="static/images/ods1.jpg" alt="Ods 4" style="width: 33.33%; margin-right: 5px;">
-<img src="static/images/ods2.jpg" alt="ODS ONU" style="width: 33.33%; margin-right: 5px;">
-<img src="static/images/ods3.jpg" alt="Ods 10" style="width: 33.33%;">
+<img src="static/images/ods1.jpg" alt="Ods 4" style="width: 30%; margin-right: 5px;">
+<img src="static/images/ods2.jpg" alt="ODS ONU" style="width: 30%; margin-right: 5px;">
+<img src="static/images/ods3.jpg" alt="Ods 10" style="width: 30%;">
 </div>
 
