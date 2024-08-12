@@ -22,35 +22,23 @@ generation_config = {
   "max_output_tokens": 8192,
   "response_mime_type": "text/plain",
 }
-safety_settings = [
-    genai.SafetySetting(
-        category="HARM_CATEGORY_HARMFUL_CONTENT",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_TOXICITY",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_BIAS",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_PROFANITY",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_HATE_SPEECH",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_SEXUAL_CONTENT",
-        threshold="VERY_LOW",
-    ),
-    genai.SafetySetting(
-        category="HARM_CATEGORY_SELF_HARM",
-        threshold="VERY_LOW",
-    ),
+safety_settings = [  
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  }
 ]
 genai.configure(api_key=my_api_key)
 model = genai.GenerativeModel(model_name=ai_model,

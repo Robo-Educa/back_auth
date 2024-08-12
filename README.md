@@ -28,7 +28,7 @@ And all the magic performed by the app is made possible by the **Google GEMINI A
 ## 📆 History
 
 <div align="center">
-<img src="static/images/robopet.jpg" alt="Logo">
+<img src="static/images/robopetv1.jpg" alt="Logo">
 </div>
 
 Artificial intelligence is increasingly present in our lives, making it necessary to encourage as many people as possible to take their first steps in understanding this technology, allowing them to become not only users but also protagonists in creating new resources for this technology in the future.
