@@ -26,7 +26,7 @@ And all the magic done by the application is only possible due to the use of the
 
 ## 💪 History of Social Impact
 
-Since 2018, when we were only using LEDs, batteries, and resistors, we have impacted hundreds of children in various impoverished communities in the city of Salvador, Bahia - Brazil.
+Since 2018, when we were only using LEDs, batteries, and resistors, we have impacted hundreds of children in various impoverished communities in the city of **Salvador, Bahia - Brazil**.
 
 The mastermind behind this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a black man from a peripheral area who graduated in Data Science and Systems Developer. He tells a little about his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
 
@@ -35,8 +35,8 @@ But it was only in 2024, with the advent of **Generative AI** and the **Google G
 <div style="display: flex;">
 <img src="static/images/image1.jpg" alt="Image 1" style="width: 22%; margin-right: 8px;">
 <img src="static/images/image2.jpg" alt="Image 2" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image3.jpg" alt="Image 3" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image4.jpg" alt="Image 4" style="width: 22%;">
+<img src="static/images/image4.jpg" alt="Image 4" style="width: 22%; margin-right: 8px;">
+<img src="static/images/image3.jpg" alt="Image 3" style="width: 22%;">
 </div>
 
 📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.

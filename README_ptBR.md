@@ -26,7 +26,7 @@ E toda a mágica realizado pelo aplicativo só é possível por conta do uso da 
 
 ## 💪 Histórico de Impacto Social
 
-Desde o ano de 2018, quando utilizávamos apenas leds, baterias e resistores conseguimos impactar centenas de crianças em diversas comunidades carentes na cidade de Salvador, Bahia - Brasil.
+Desde o ano de 2018, quando utilizávamos apenas leds, baterias e resistores conseguimos impactar centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
 
 O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video.
 
