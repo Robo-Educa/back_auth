@@ -48,16 +48,21 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo contido neste repositório.
 
 <div style="display: flex;">
-<img src="static/images/robopetv1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
-<img src="static/images/robopetv2.jpg" alt="Robô Educa em MDF versão 1" style="width: 22%; margin-right: 8px;">
-<img src="static/images/robopetv3.jpg" alt="Robô Educa em MDF versão 2" style="width: 22%; margin-right: 8px;">
-<img src="static/images/robopetv4.jpg" alt="Robô Educa em MDF manuseado por criança" style="width: 22%;">
+<img src="static/images/robopet1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopet2.jpg" alt="Robô Educa em MDF versão 1" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopet3.jpg" alt="Robô Educa em MDF versão 2" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopet4.jpg" alt="Robô Educa em MDF manuseado por criança" style="width: 22%;">
 </div>
 
 ### 🧠 CÉREBRO
 
 O aplicativo, cérebro do robô, permite que o mesmo desempenhe funções cognitivas como ouvir, pensar e falar. 
+
 #### Tecnologias utilizadas na construção do aplicativo
+
+<div align="center">
+<img src="static/images/gemini.png" alt="Logo Build with Gemini">
+</div>
 
 - ![Pyton](https://img.shields.io/badge/python-v3-green)
 - ![HTML](https://img.shields.io/badge/HTML-5-orange)
@@ -65,15 +70,9 @@ O aplicativo, cérebro do robô, permite que o mesmo desempenhe funções cognit
 - ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 - ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
-<div style="display: flex;">
-<img src="static/images/brain.jpg" alt="Imagem de um cérebro gerada por IA" style="width: 33%; margin-right: 8px;">
-<img src="static/images/gemini.png" alt="Logo Build with GEMINI" style="width: 33%; margin-right: 8px;">
-<img src="static/images/brain.jpg" alt="Imagem de um cérebro gerada por IA" style="width: 33%;">
-</div>
-
 <hr>
 
-### Pilha Tecnológica e Arquitetura
+### Arquitetura
 
 A aplicação é desenvolvida utilizando ferramentas open-source e hospedada na **Google Cloud**, aproveitando sua infraestrutura robusta. O backend é desenvolvido em Python usando o framework Flask, seguindo o padrão de design **Service/Repository**:
 
