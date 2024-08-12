@@ -68,6 +68,222 @@ Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn 
 - ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 - ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
+## Robô Educa Platform Overview
+
+The **Robô Educa** platform offers a hands-on, creative experience for students by guiding them through the physical assembly of a humanoid robot. This robot is made from recyclable materials or MDF and can be customized with elements such as LEDs, batteries, and other components. Once the physical robot is assembled, students bring it to life using the "brain" of the robot, which is the application described in this code.
+
+The application enables the humanoid robot to perform cognitive functions: hearing, thinking, and speaking. These capabilities are implemented using **Speech-to-Text** and **Text-to-Speech** technologies, allowing the robot to listen to spoken messages, analyze them, and respond with synthesized speech.
+
+## Technology Stack and Architecture
+
+The application is built using open-source tools and hosted on Google Cloud, leveraging its robust infrastructure. The backend is developed in Python using the Flask framework, following the **Service/Repository** design pattern:
+
+- **Service Layer**: Handles the business logic.
+- **Repository Layer**: Manages integration with the database.
+
+For data storage, the platform uses a NoSQL database, **Firebase/Firestore**, which offers scalability and flexibility for storing conversations and user data.
+
+## Core Files and Functionality
+
+### Backend - `routes.py`
+The `routes.py` file manages all the routes available in the application. This is where different endpoints are defined to handle user interactions and data processing.
+
+```python
+# Dependências
+from main import app
+from flask import render_template, request, session, redirect, url_for, make_response, jsonify
+# Serviços
+import service.loginService as loginService
+import service.talkService as talkService
+
+# Página inicial/Index
+@app.route('/')
+def home():
+    return render_template('index.html')
+```
+
+### Frontend - HTML, CSS, and JavaScript
+The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting microphone access, which is handled by `mediadevices.js`.
+
+**Microphone Access**:
+When the application is launched, it checks for microphone permissions. If it's the user's first time accessing the app, they are prompted to grant permission. This process is managed by the `mediadevices.js` file.
+
+```javascript
+async function devices_micPrompt() {
+    let permission;
+    await navigator.mediaDevices
+        .getUserMedia({
+            audio: true
+        })
+        .then(function (stream) {
+            permission = "granted"        
+        })
+        .catch(function (error) {
+            if (error.message == "Requested device not found") {
+                permission = "notFound";
+            } else if (error.message == "Permission denied") {
+                permission = "denied";
+            } else {
+                console.log(error.message)
+                permission = 'error';
+            }
+        });
+    return permission;
+}
+```
+
+**User Authentication**:
+The login process is handled by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest.
+
+```javascript
+async function login(usertype) {    
+
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;    
+
+    displayStartLogin();
+    
+    await fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: username, password: password, usertype: usertype })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        displayStopLogin();
+        
+        switch (data.status) {
+            case 'success':
+                goToPage("interaction");
+                break;
+            case 'errorUser':
+                alert("Usuário inexistente");
+                document.getElementById("username").focus();
+                break;
+            case 'errorPwd':
+                alert("Senha incorreta");
+                document.getElementById("password").focus();
+                break;
+            case 'errorGuest':
+                alert("Não foi possível criar usuário temporário. Tente novamente!");                
+                break;                
+            default:
+                break;
+        }        
+    });
+    
+}
+```
+
+**Interaction**:
+After successful login, the interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is straightforward, with elements symbolizing listening, thinking, and speaking.
+
+**Continuous Listening and Speech Processing**:
+The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to the user's speech. These tasks are performed by `Talk.js`, which utilizes the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs.
+
+```javascript
+// Este evento é acionado quando o reconhecimento de voz captura um resultado
+recognition.onresult = event => {    
+    const transcript = event.results[event.resultIndex][0].transcript;    
+    talk(transcript);           // Envia transcrição do audio falado pelo usuário para o backend processar junto à Inteligência Artificial e dar uma respectiva resposta
+};
+
+// Verifica se usuário não estiver falando (reproduzindo audio). Após 1 minuto de inatividade, interrrompe reconhecimento e exibe botão de pausa
+recognition.onend = () => {
+    if (speakStatus == false) {     
+        timestampAtual = Date.now();
+        var diferenca = timestampAtual - timestampParam;
+        var minutosPassados = diferenca / (1000 * 60);
+        if (minutosPassados < 1) {
+            recognition.start(); // Inicia o reconhecimento de voz
+        } else {
+            hideAllExceptClose();
+            showElement("divPauseStart");
+        }
+    }        
+};
+```
+
+### Cognitive Processing with Google Gemini API
+
+When a complete phrase is detected, it is sent to the backend for cognitive processing. This is accomplished using the **GEMINI API**, which leverages the `gemini-1.5-flash` model for quick and accurate responses, ensuring fluid conversations that make the robot more engaging and lifelike.
+
+```python
+import google.generativeai as genai
+
+# Interação com a Google Gemini API
+def talk(userMessage):
+    # Obtem ID do usuário logado
+    user_id = session["userId"]
+
+    # Obtem histórico de mensagens do usuário
+    message_history = messageHistory.getById(user_id)
+    message_history_gemini_format = format_messages_for_gemini(message_history)   
+    
+    # Salva mensagem do usuário em banco de dados
+    role = "user"                                       # role=user => mensagem enviada pelo usuário
+    messageHistory.store(user_id, role, userMessage)    
+
+    # Inicia interação com Gemini AI
+    try:
+        convo = model.start_chat(history = message_history_gemini_format) # Inicia chat, contextualizando a IA com o histórico da conversação
+        convo.send_message(userMessage)                     # envia nova mensagem para ser processada pela IA
+        bot_response = convo.last.text                      # Obtem resposta da IA
+    except:
+        bot_response = "error"
+
+    # Salva resposta do Bot em banco de dados
+    if bot_response != "error":
+        role = "model"                                      # role=model => mensagem enviada pela IA
+        messageHistory.store(user_id, role, bot_response)    
+    else:
+        bot_response = "Desculpe, não foi possível obter resposta da Inteligência Artificial."
+
+    response = {"status": "success", "message": bot_response}
+    return response
+```
+
+### Data Storage and Personalization
+
+The platform stores each user's conversation in Firestore using NoSQL collections. This ensures safety and security for children, while also allowing for moderation and personalization of content.
+
+```python
+import time
+import repository.db_resource as dbr
+
+# Instância de conexão com banco de dados NoSQL Google Firestore
+db = dbr.firestore_resource()       
+
+# Obtem histórico de mensagens a partir do ID do usuário
+def getById(user_id):
+    collection = f"message_history_{user_id}"
+    messages_ref = db.collection(collection).order_by("timestamp")
+    messages = messages_ref.stream()
+
+    return messages
+
+# Salva mensagem para recuperação de histórico de conversa na contextualização da resposta
+def store(user_id, role, message):
+    collection = f"message_history_{user_id}"
+    try:
+        doc_ref = db.collection(collection).document()
+        doc_ref.set({
+            "timestamp": int(time.time()),
+            "role": role,
+            "parts": [message]
+        })    
+    except Exception as e:
+        print(f"Erro ao salvar mensagem no banco de dados. Detalhes: {e}")
+        return False
+```
+
+### Conclusion
+
+Robô Educa combines physical creativity with cutting-edge AI to create an interactive, educational experience for children. The platform's modular architecture and use of modern web technologies make it scalable, secure, and adaptable to various learning environments.
+
 ## ✍️ How to Run This App on Your Windows PC
 
 1. Clone the repository:
@@ -109,7 +325,7 @@ $ gcloud run deploy --source .
 * In the navigation menu, select: FireBase-Firestore
 * Create a Native Database
 * Download a JSON file containing access credentials for your database:
-    * IAM & Admin / Service Accounts / Click on the Service Account: Default compute service account
+    * IAM & Admin / Service Accounts / Click on the Service Account: **Default compute service account**
     * Keys / Add Key / Create New Key / JSON / Create
     * The JSON file will be automatically downloaded.
 * In the navigation menu, select: Google Cloud Storage
