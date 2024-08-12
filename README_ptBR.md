@@ -39,15 +39,13 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 <img src="static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
-<hr>
-
 📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
 
 ## Como as coisas funcionam
 
 ### 👤 CORPO
 
-A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô é feito com materiais recicláveis ou MDF e pode ser customizado com elementos como LEDs, baterias e outros componentes. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo descrito neste código.
+A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo contido neste repositório.
 
 <div style="display: flex;">
 <img src="static/images/robopetv1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
@@ -186,6 +184,11 @@ Após o login bem-sucedido, a interação começa no frontend com o arquivo `int
 O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo `Talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
 
 ```javascript
+recognition = new SpeechRecognition();
+recognition.lang = "pt-BR";
+recognition.continuous = true;      // Reconhecimento contínuo em loop
+recognition.interimResults = false; // resultados parciais
+
 // Este evento é acionado quando o reconhecimento de voz captura um resultado
 recognition.onresult = event => {    
     const transcript = event.results[event.resultIndex][0].transcript;    
@@ -243,8 +246,7 @@ function removerEmojis(texto) {
 }
 ```
 
-
-### Processamento Cognitivo com a API Google Gemini
+### 🧠 Processamento Cognitivo com a API Google Gemini
 
 Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Isso é realizado utilizando a **API GEMINI**, que aproveita o modelo `gemini-1.5-flash` para respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais envolvente e realista.
 
@@ -252,6 +254,12 @@ Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliad
 
 ```python
 import google.generativeai as genai
+
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
 
 # Interação com a Google Gemini API
 def talk(userMessage):

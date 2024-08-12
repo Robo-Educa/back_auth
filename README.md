@@ -9,58 +9,55 @@
 ![Portuguese](https://img.shields.io/badge/Language-Portuguese-brightgreen)
 <hr>
 
-## 🤓  Learn to Code by Building Your Own Robot.
+## 🤓 Learn to code by building your own robot.
 
-**Robô Educa** is an innovative platform that teaches programming to children aged 6 to 14, promoting inclusion and sustainability ♻️. The journey begins with an inspiring story of two siblings, Suzy and Otávio, who wish to build a robot 🤖 and receive help from their teacher Carlos Sales 👨‍🏫. He encourages them to create their own humanoid robot using recycled materials, programming, and cloud technology ♻️💻☁️.
+Robô Educa is an innovative platform that teaches programming to children aged 6 to 14, promoting inclusion and sustainability 🤝♻️. The journey begins with an inspiring story of two siblings, Suzy and Otávio, who want to build a robot 🤖 and count on the help of their teacher Carlos Sales 👨‍🏫 who encourages them to build their own humanoid robot using recycled materials, programming, and the cloud ♻️💻☁️.
 
-It is in this context that the Robô Educa Web App emerges. Accessible from any smartphone 📱, it becomes the "brain" of the robot 🧠, interacting with the child through audio messages 🗣️, making it accessible even to individuals with visual impairments. Assembling the robot and interacting with the app stimulate motor coordination 🖐️ and creativity ✨, teaching children technological concepts in a playful and inclusive way.
+It is in this context that the Robô Educa Web Application emerges, which is accessible from any smartphone 📱 and becomes the "brain" of the robot 🧠 interacting with the child through audio messages 🗣️ making it accessible even for visually impaired people. The assembly of the robot and interaction with the application stimulates motor coordination 🖐️ and creativity ✨ teaching the child technological concepts in a playful and inclusive way.
 
-And all the magic performed by the app is made possible by the **Google GEMINI API** 🤖, which allows Robô Educa to understand and respond to children's questions, explain complex concepts 🤯, and conduct gamified quizzes 🎉. This technology available on Google's cloud transforms learning into a natural and fun conversation 😄, opening new perspectives for these children's future 🚀.
+And all the magic done by the application is only possible due to the use of the **Google GEMINI API** 🤖 which allows Robô Educa to understand and answer the child's questions, explain complex concepts 🤯 and perform gamified quizzes 🎉. This technology available in Google's cloud turns learning into a natural and fun conversation 😄 opening new perspectives for the future of these children 🚀.
 
-## 🤖 How to Test the App:
-
-* Visit: https://robo-educa-gemini-server-xd3gd6y2aa-uw.a.run.app/
+## 🤖 How to test the app:
+* Access: https://robo-educa-gemini-server-xd3gd6y2aa-uw.a.run.app/
 * Click on Start;
-* Allow microphone access;
-* Click on: ENTER AS GUEST;
-* Listen to the questions and answer correctly to earn points.
+* Authorize the use of the Microphone;
+* Click on: ENTER AS VISITOR;
+* Listen to the questions and answer correctly to accumulate points.
 
-## 📆 History
+## 💪 History of Social Impact
 
-<div align="center">
-<img src="static/images/robopetv1.jpg" alt="Logo">
-</div>
+Since 2018, when we were only using LEDs, batteries, and resistors, we have impacted hundreds of children in various impoverished communities in the city of Salvador, Bahia - Brazil.
 
-Artificial intelligence is increasingly present in our lives, making it necessary to encourage as many people as possible to take their first steps in understanding this technology, allowing them to become not only users but also protagonists in creating new resources for this technology in the future.
+The mastermind behind this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a black man from a peripheral area who graduated in Data Science and Systems Developer. He tells a little about his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
 
-It was with this thought that the Robô Educa project was launched in 2018. It is an inclusive platform for Programming Education where children take their first steps in this universe by building their own robot. At that time, the robot was made from PET bottles and some electronic components such as Arduino, LEDs, resistors, and batteries.
-
-But it was only in 2024, with the advent of Generative AI and the Google GEMINI API, that the robot gained a "brain" capable of responding in an intelligent and rapid manner, making interaction with the child smooth and delightful 😄!
-
-The creator of this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a Black man from a disadvantaged background, graduated in Data Science and Systems Development. He shares some of his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
+But it was only in 2024, with the advent of **Generative AI** and the **Google GEMINI API**, that the robot began to have a **brain** capable of responding intelligently and quickly, making the interaction with the child fluid and enchanting 😄!
 
 <div style="display: flex;">
-<img src="static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
+<img src="static/images/image1.jpg" alt="Image 1" style="width: 22%; margin-right: 8px;">
+<img src="static/images/image2.jpg" alt="Image 2" style="width: 22%; margin-right: 8px;">
+<img src="static/images/image3.jpg" alt="Image 3" style="width: 22%; margin-right: 8px;">
+<img src="static/images/image4.jpg" alt="Image 4" style="width: 22%;">
 </div>
 
-## 💪 Impact
+📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
 
-Using only a few LEDs, resistors, and batteries, we have impacted hundreds of children in various communities in our city.
+## How things work
 
-With the use of generative artificial intelligence and cloud technology, new possibilities for expanding our robot's cognitive abilities arise. We hope to reach an even larger number of children, now **around the world!**
+### 👤 BODY
 
-Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our inclusion workshops conducted in underserved communities in Salvador, Bahia - Brazil.
+The **Robô Educa** platform offers a practical and creative experience for students, guiding them in the physical assembly of a humanoid robot. This robot can be made with recyclable materials like PET bottles or MDF wood kits. After the physical assembly, students bring the robot to life using its "brain," which is the application contained in this repository.
 
-💪 And you? Did you like it? Then do your part and contribute to this initiative so we can expand our impact even further.
-
-## 💻 Technologies Used in This App
-
-<div align="center">
-<img src="static/images/gemini.png" alt="Logo Gemini API">
+<div style="display: flex;">
+<img src="static/images/robopetv1.jpg" alt="Robo Educa PET Bottle Version" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopetv2.jpg" alt="Robô Educa MDF version 1" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopetv3.jpg" alt="Robô Educa MDF version 2" style="width: 22%; margin-right: 8px;">
+<img src="static/images/robopetv4.jpg" alt="Robô Educa MDF handled by a child" style="width: 22%;">
 </div>
+
+### 🧠 BRAIN
+
+The application, the robot's brain, allows it to perform cognitive functions such as listening, thinking, and speaking. 
+#### Technologies used in the application construction
 
 - ![Pyton](https://img.shields.io/badge/python-v3-green)
 - ![HTML](https://img.shields.io/badge/HTML-5-orange)
@@ -68,25 +65,27 @@ Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn 
 - ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 - ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
-## Robô Educa Platform Overview
+<div style="display: flex;">
+<img src="static/images/brain.jpg" alt="Image of a brain generated by AI" style="width: 33%; margin-right: 8px;">
+<img src="static/images/gemini.png" alt="Logo Build with GEMINI" style="width: 33%; margin-right: 8px;">
+<img src="static/images/brain.jpg" alt="Image of a brain generated by AI" style="width: 33%;">
+</div>
 
-The **Robô Educa** platform offers a hands-on, creative experience for students by guiding them through the physical assembly of a humanoid robot. This robot is made from recyclable materials or MDF and can be customized with elements such as LEDs, batteries, and other components. Once the physical robot is assembled, students bring it to life using the "brain" of the robot, which is the application described in this code.
+<hr>
 
-The application enables the humanoid robot to perform cognitive functions: hearing, thinking, and speaking. These capabilities are implemented using **Speech-to-Text** and **Text-to-Speech** technologies, allowing the robot to listen to spoken messages, analyze them, and respond with synthesized speech.
+### Technology Stack and Architecture
 
-## Technology Stack and Architecture
+The application is developed using open-source tools and hosted on **Google Cloud**, leveraging its robust infrastructure. The backend is developed in Python using the Flask framework, following the **Service/Repository** design pattern:
 
-The application is built using open-source tools and hosted on Google Cloud, leveraging its robust infrastructure. The backend is developed in Python using the Flask framework, following the **Service/Repository** design pattern:
-
-- **Service Layer**: Handles the business logic.
+- **Service Layer**: Handles business logic.
 - **Repository Layer**: Manages integration with the database.
 
-For data storage, the platform uses a NoSQL database, **Firebase/Firestore**, which offers scalability and flexibility for storing conversations and user data.
+For data storage, the platform uses a NoSQL database, **Firebase/Firestore**, which offers scalability and flexibility to store conversations and user data.
 
-## Core Files and Functionality
+### Main Files and Functionalities
 
 ### Backend - `routes.py`
-The `routes.py` file manages all the routes available in the application. This is where different endpoints are defined to handle user interactions and data processing.
+The `routes.py` file manages all available routes in the application. This is where different endpoints are defined to handle user interactions and data processing.
 
 ```python
 # Dependências
@@ -102,11 +101,11 @@ def home():
     return render_template('index.html')
 ```
 
-### Frontend - HTML, CSS, and JavaScript
-The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting microphone access, which is handled by `mediadevices.js`.
+### Frontend - HTML, CSS and JavaScript
+The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `mediadevices.js`.
 
 **Microphone Access**:
-When the application is launched, it checks for microphone permissions. If it's the user's first time accessing the app, they are prompted to grant permission. This process is managed by the `mediadevices.js` file.
+When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `mediadevices.js` file. 
 
 ```javascript
 async function devices_micPrompt() {
@@ -133,7 +132,7 @@ async function devices_micPrompt() {
 ```
 
 **User Authentication**:
-The login process is handled by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest.
+The login process is managed by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
 
 ```javascript
 async function login(usertype) {    
@@ -179,12 +178,17 @@ async function login(usertype) {
 ```
 
 **Interaction**:
-After successful login, the interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is straightforward, with elements symbolizing listening, thinking, and speaking.
+After successful login, interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
 
 **Continuous Listening and Speech Processing**:
-The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to the user's speech. These tasks are performed by `Talk.js`, which utilizes the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs.
+The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `Talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
 
 ```javascript
+recognition = new SpeechRecognition();
+recognition.lang = "pt-BR";
+recognition.continuous = true;      // Reconhecimento contínuo em loop
+recognition.interimResults = false; // resultados parciais
+
 // Este evento é acionado quando o reconhecimento de voz captura um resultado
 recognition.onresult = event => {    
     const transcript = event.results[event.resultIndex][0].transcript;    
@@ -207,12 +211,55 @@ recognition.onend = () => {
 };
 ```
 
-### Cognitive Processing with Google Gemini API
+```javascript
+// Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
+function speak(message) {
+    message = removerEmojis(message);
+    const utterThis = new SpeechSynthesisUtterance(message);
+    utterThis.pitch = 2;
+    utterThis.rate = 4;
 
-When a complete phrase is detected, it is sent to the backend for cognitive processing. This is accomplished using the **GEMINI API**, which leverages the `gemini-1.5-flash` model for quick and accurate responses, ensuring fluid conversations that make the robot more engaging and lifelike.
+    utterThis.onstart = function () {
+        hideAllExceptClose();                   // Oculta elementos que estiverem visiveis na tela
+        showElement("divSpinnerWaves");                
+    };
+
+    utterThis.onend = function () {        
+        speakStatus=false;
+        hideAllExceptClose();                   // Oculta elementos que estiverem visiveis na tela
+        showElement("divSpinnerRipple");        // Exibe Spinner simulando ondulaçao de escuta 
+        recognition.start();                    // Inicia o reconhecimento de voz 
+        timestampParam = Date.now();       
+    };
+
+    recognition.stop();                         // Ao iniciar a fala (reprodução do audio) Interrompe o reconhecimento de voz
+    speakStatus=true;                           // Speaking     on=true  off=false
+    synth.speak(utterThis);                     // inicia a reprodução da mensagem    
+}
+
+// Remove emojis da mensagem, para que a mesma possa ser reproduzida via sintese de fala
+function removerEmojis(texto) {
+    return texto
+        .replace(/\p{Emoji}/gu, '') // Remove emojis
+        .replace(/\s+/g, ' ') // Remove espaços em branco extras
+        .trim(); // Remove espaços em branco no início e no fim
+}
+```
+
+### 🧠 Cognitive Processing with the Google Gemini API
+
+When a complete sentence is detected, it is sent to the backend for cognitive processing. This is done using the **GEMINI API**, which leverages the `gemini-1.5-flash` model for fast and accurate responses, ensuring fluid conversations that make the robot more engaging and realistic.
+
+For prompt engineering, we use the **Zero-Shot Prompting** technique combined with a feature of the GEMINI SDK, **System instructions**, which provide a frame of reference for the model, helping it understand the task and respond appropriately without needing specific examples. 
 
 ```python
 import google.generativeai as genai
+
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
 
 # Interação com a Google Gemini API
 def talk(userMessage):
@@ -248,7 +295,7 @@ def talk(userMessage):
 
 ### Data Storage and Personalization
 
-The platform stores each user's conversation in Firestore using NoSQL collections. This ensures safety and security for children, while also allowing for moderation and personalization of content.
+The platform stores each user's conversation in Firestore using NoSQL collections. This ensures the safety of children, as well as allowing for content moderation and personalization. 
 
 ```python
 import time
@@ -282,9 +329,9 @@ def store(user_id, role, message):
 
 ### Conclusion
 
-Robô Educa combines physical creativity with cutting-edge AI to create an interactive, educational experience for children. The platform's modular architecture and use of modern web technologies make it scalable, secure, and adaptable to various learning environments.
+Robô Educa combines physical creativity with cutting-edge artificial intelligence to create an interactive and educational experience for children. The platform's modular architecture and use of modern web technologies make it scalable, secure, and adaptable to diverse learning environments.
 
-## ✍️ How to Run This App on Your Windows PC
+## ✍️ How to run this application on your Windows PC
 
 1. Clone the repository:
 ```
@@ -305,16 +352,13 @@ $ python main.py
 ```
 http://localhost:5000
 ```
-
-## ☁️ How to Deploy on Google Cloud (Cloud Run)
-
+## ☁️ How to deploy to Google's cloud environment (Cloud Run)
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
-
-* In the Google Cloud Platform console, create a Project.
-* Make sure you have the gcloud CLI (Google Cloud SDK Shell) installed on your Windows PC.
-* In a Google Cloud SDK Shell terminal, navigate to the folder where your project is located and initialize your connection by providing your email, project, and default region for hosting your App:
+* In the Google Cloud Platform console, create a Project 
+* Make sure you have installed the gcloud CLI (Google Cloud SDK Shell) on your Windows PC
+* In a Google Cloud SDK Shell terminal, go to the folder where your project is located and initialize your connection by providing your email, project, and default region for hosting your App:
 ```
-$ cd\[path do projeto]
+$ cd\[path of project]
 $ gcloud init
 ```
 * Deploy your App:
@@ -322,39 +366,42 @@ $ gcloud init
 $ gcloud run deploy --source .
 ```
 * In the Google Cloud Platform console, select your project.
-* In the navigation menu, select: FireBase-Firestore
-* Create a Native Database
-* Download a JSON file containing access credentials for your database:
-    * IAM & Admin / Service Accounts / Click on the Service Account: **Default compute service account**
-    * Keys / Add Key / Create New Key / JSON / Create
-    * The JSON file will be automatically downloaded.
-* In the navigation menu, select: Google Cloud Storage
-* Create a private Bucket. Save the JSON file containing database access credentials in this Bucket.
-* In the navigation menu, select: Cloud Run
+* In the navigation menu select: FireBase-Firestore 
+* Create a Native type Database
+* Download a JSON file containing access credentials to your database:
+    * IAM and Administrator / Service Accounts / Click on the service account: **Default compute service account**
+    * Keys / Add key / Create new Key / JSON / Create
+    * The JSON file will be downloaded automatically
+* In the navigation menu select: Google Cloud Storage
+* Create a private Bucket. Save the JSON file containing the database access credentials in this Bucket
+* In the navigation menu select: Cloud Run 
 * Click on the Application
 * Click on: "Edit and deploy a new version"
-    * Click on Volumes / Add a Volume referring to the Bucket containing the database credentials
-    * Type: Cloud Storage Bucket
-    * Go to the Containers tab / Volume Mounting / Mount Volume
-    * Select the name of the created volume
-    * Mount Path: specify a name that will serve as a path. E.g., /config
-    * Finish / Deploy
+    * Click on Volumes / Add a Volume referring to the Bucket containing the database credential
+        * Type: Cloud Storage Bucket
+        * Access the Containers / Volume Mount tab / Mount Volume
+        * Select the name of the volume created 
+        * Mount Path: specify a name that will serve as a path. Ex: /config
+        * Finish / Deploy
 * Click again on: Edit and deploy a new version
-* Variables and Secrets / Add the same variables contained in the .ENV.example file
-    * Note the variable PATH_CREDENTIAL_FIRESTORE should contain the path to the newly created volume. E.g., /config/credential.json
-    * Note the variable API_KEY should contain a valid key that can be obtained from: https://aistudio.google.com
-* Caution: Be careful with the JSON file containing the database access credentials and your Gemini API_KEY. Never expose them publicly; use secrets or other security measures recommended by Google Cloud.
+    * Variables and Secrets / Add the same variables contained in the .ENV.example file
+        * Pay attention to the PATH_CREDENTIAL_FIRESTORE variable which should contain the path of the newly created volume. Ex: /config/credential.json
+        * Pay attention to the API_KEY variable which should contain a valid key that can be obtained at: https://aistudio.google.com
+* Attention: Be careful with the JSON file containing the database access credential and also with your API_KEY Gemini. Never expose them publicly, use secrets or other recommended security resources from the Google Cloud platform.
 
 ## 📄 License
 
-This project is licensed under the [Apache 2.0 License](LICENSE). Also, see the Terms of Service.
+This project is licensed under the [Apache 2.0 License](LICENSE). Please also observe the Terms of Service.
 
 ## 🤝 Contributions
 
 Contributions are welcome! Feel free to open a pull request or contribute in any other way.
 
-* Contacts/WhatsApp: +55 (71) 9.9341-6896
-* E-mail: roboeduca.net@gmail.com
+💪 And you? Did you like it? So do your part and collaborate with this initiative so that we can expand our impact even further.
+
+
+* Contacts/WhatsApp: +55 (71) 9.9341-6896 
+* Email: roboeduca.net@gmail.com
 
 <div style="display: flex;">
 <img src="static/images/ods1.jpg" alt="Ods 4" style="width: 30%; margin-right: 5px;">
