@@ -45,7 +45,7 @@ But it was only in the year 2024 with the advent of **Generative AI** and the **
 
 ### 👤 BODY
 
-The **Robô Educa** platform offers a practical and creative experience for students, guiding them in the physical assembly of a humanoid robot. This robot can be made with recyclable materials like PET bottles or MDF wood kits. After the physical assembly, students bring the robot to life using its "brain," which is the application contained in this repository.
+The **Robô Educa** platform offers a practical and creative experience for students, guiding them in the physical assembly of a humanoid robot. This robot can be made with recyclable materials like PET bottles ♻️ or MDF wood kits. After the physical assembly, students bring the robot to life using its "brain" 🧠 which is the application contained in this repository.
 
 <div style="display: flex;">
 <img src="static/images/robopet1.jpg" alt="Robo Educa PET Bottle Version" style="width: 22%; margin-right: 8px;">
@@ -374,14 +374,23 @@ And:
 
 **BLOCK_LOW_AND_ABOVE**: Blocks any content within the category that is considered "low", "medium", or "high" in terms of risk. This is the highest security level and is appropriate for environments where child protection is a priority.
 
-### Data Storage and Personalization
+### Data Storage
 
 ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 
-The platform stores each user's conversation in a **Firestore** database using NoSQL collections. This generates at least two major benefits:
+The platform stores each user’s conversation in a **Firestore** database using NoSQL collections. This provides several benefits:
 
-* Ensure safety in the event of a need for moderation;
-* Allow content personalization.
+* Automatic scalability: Firestore is a NoSQL database that automatically scales, transparently adjusting to demand, ensuring that the application can handle a large volume of conversations without performance issues.
+
+* Low latency: Firestore is designed for fast read and write operations, making chatbot responses instantaneous and fluid.
+
+* Security and access control: Firestore offers granular access control, allowing you to define rules for who can access and modify conversations, ensuring data privacy and security.
+
+* Usage-based pricing model: You only pay for the resources you use, which can be more cost-effective compared to traditional relational databases, especially for chatbot applications with high conversation volume.
+* Allows for moderation of conversations, for quality control and communication security;
+* Allows for content personalization.
+
+### Content personalization
 
 And regarding content personalization, **Google GEMINI** is capable of handling up to **2 million Tokens**. This represents a considerable volume of data, capable of storing a significant amount of information and interactions for educational content personalization.
 

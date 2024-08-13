@@ -45,7 +45,7 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 
 ### 👤 CORPO
 
-A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo contido neste repositório.
+A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ♻️ ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele 🧠, que é o aplicativo contido neste repositório.
 
 <div style="display: flex;">
 <img src="static/images/robopet1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
@@ -370,14 +370,20 @@ E:
 
 **BLOCK_LOW_AND_ABOVE**: Bloqueia qualquer conteúdo dentro da categoria que seja considerado "baixo", "médio" ou "alto" em termos de risco. Este é o nível de segurança mais alto e é adequado para ambientes onde a proteção de crianças é priorizada.
 
-### Armazenamento de Dados e Personalização
+### Armazenamento de Dados
 
 ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 
-A plataforma armazena a conversa de cada usuário em um banco de dados do **Firestore** utilizando coleções NoSQL. Isto gera pelo menos dois grandes benefícios:
+A plataforma armazena a conversa de cada usuário em um banco de dados do **Firestore** utilizando coleções NoSQL. Isto gera vários benefícios:
 
-* Garantir a segurança em uma eventual necessidade de moderação;
-* Permitir a personalização do conteúdo. 
+* Escalabilidade automática: O Firestore é um banco de dados NoSQL que escala automaticamente, ajustando-se à demanda de forma transparente, garantindo que o aplicativo possa lidar com um grande volume de conversas sem problemas de desempenho.
+* Baixa latência: O Firestore é projetado para operações de leitura e gravação rápidas, tornando as respostas do chatbot instantâneas e fluidas.
+* Segurança e controle de acesso: O Firestore oferece controle de acesso granular, permitindo definir regras para quem pode acessar e modificar as conversas, garantindo a privacidade e segurança dos dados.
+* Modelo de preços baseado em uso: Você paga apenas pelos recursos que usa, o que pode ser mais econômico em comparação com bancos de dados relacionais tradicionais, especialmente para aplicações de chatbot com alto volume de conversas.
+* Permite a moderação das conversas, para controle de qualidade e segurança da comunicação;
+* Permite a personalização do conteúdo. 
+
+### Personalização do conteúdo
 
 E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
 
