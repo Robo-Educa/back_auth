@@ -26,11 +26,11 @@ And all the magic done by the application is only possible due to the use of the
 
 ## 💪 History of Social Impact
 
-Since 2018, when we were only using LEDs, batteries, and resistors, we have impacted hundreds of children in various impoverished communities in the city of **Salvador, Bahia - Brazil**.
+Since 2018, this work, which is carried out voluntarily, has already impacted hundreds of children in several needy communities in the city of **Salvador, Bahia - Brazil**.
 
 The mastermind behind this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a black man from a peripheral area who graduated in Data Science and Systems Developer. He tells a little about his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
 
-But it was only in 2024, with the advent of **Generative AI** and the **Google GEMINI API**, that the robot began to have a **brain** capable of responding intelligently and quickly, making the interaction with the child fluid and enchanting 😄!
+But it was only in the year 2024 with the advent of **Generative AI** and the **Google GEMINI API**, that the robot began to have a **brain** capable of responding intelligently and quickly, making the interaction much more fluid and charming 😄!
 
 <div style="display: flex;">
 <img src="static/images/image1.jpg" alt="Image 1" style="width: 22%; margin-right: 8px;">
@@ -39,7 +39,7 @@ But it was only in 2024, with the advent of **Generative AI** and the **Google G
 <img src="static/images/image3.jpg" alt="Image 3" style="width: 22%;">
 </div>
 
-📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
+#### 📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
 
 ## How things work
 
@@ -100,19 +100,35 @@ import service.talkService as talkService
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Troca de mensagens entre usuário e bot
+@app.route('/talk', methods=['POST']) 
+def talk():   
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return make_response(jsonify({"error": "Não autorizado"}), 401)
+
+    # obtem dados da requisição - mensagem do usuário
+    data = request.get_json()
+    userMessage = data.get('message')    
+
+    # Envia mensagem para Bot e aguarda respectiva resposta
+    botResponse = talkService.talk(userMessage)
+    
+    # retorna ao Front com resposta do Bot
+    return botResponse    
 ```
 
 ### Frontend - HTML, CSS and JavaScript
 
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 
-The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `mediadevices.js`.
+The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `static/js/mediadevices.js`.
 
 #### Microphone Access:
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
-When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `mediadevices.js` file. 
+When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `static/js/mediadevices.js` file. 
 
 ```javascript
 async function devices_micPrompt() {
@@ -139,7 +155,7 @@ async function devices_micPrompt() {
 ```
 
 #### User Authentication:
-The login process is managed by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
+The login process is managed by `static/js/login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
 
 ```javascript
 async function login(usertype) {    
@@ -185,12 +201,12 @@ async function login(usertype) {
 ```
 
 #### Interaction:
-After successful login, interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
+After successful login, interaction begins on the frontend with the `templates/interaction.html` file. The visual interface, managed by `static/js/display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
 
 **Continuous Listening and Speech Processing**:
-The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `Talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
+The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `static/js/talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
 
-#### To hear
+#### 🦻 TO HEAR
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
@@ -222,7 +238,7 @@ recognition.onend = () => {
 };
 ```
 
-#### To speak
+#### 🗣️ TO SPEAK
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
@@ -273,6 +289,9 @@ For prompt engineering, we use the **Zero-Shot Prompting** technique combined wi
 import google.generativeai as genai
 
 genai.configure(api_key=my_api_key)
+
+system_instruction = os.environ.get("SYSTEM_INSTRUCTIONS")    # Gemini - Instruções do Sistema / Informa as caracteristicas do Assistente.
+
 model = genai.GenerativeModel(model_name=ai_model,
         generation_config=generation_config,
         system_instruction=system_instruction,
@@ -310,7 +329,7 @@ def talk(userMessage):
     return response
 ```
 
-### Content for Children - Safety in Model Behavior
+### 🛡️ Content for Children - Safety in Model Behavior
 
 The **Google Gemini API** offers a feature called `safety_settings` that allows you to control the language model's behavior in terms of safety, especially in conversations with children. When instantiating the model, it is possible to define the desired levels of protection against inappropriate or dangerous content.
 
@@ -386,7 +405,7 @@ Some practical applications for using this capacity:
 
 ***Adaptive Feedback:*** Feedback can be personalized with clear explanations, examples, and specific tips for each student, increasing learning and retention. 
 
-### Conclusion
+### ✅ Conclusion
 
 Robô Educa combines physical creativity with cutting-edge artificial intelligence to create an interactive and educational experience for children. The platform's modular architecture and use of modern web technologies make it scalable, secure, and adaptable to diverse learning environments.
 

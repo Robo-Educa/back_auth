@@ -26,11 +26,11 @@ E toda a mágica realizado pelo aplicativo só é possível por conta do uso da 
 
 ## 💪 Histórico de Impacto Social
 
-Desde o ano de 2018, quando utilizávamos apenas leds, baterias e resistores conseguimos impactar centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
+Desde o ano de 2018 este trabalho, que acontece de forma voluntária, já impactou centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
 
 O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video.
 
-Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Google GEMINI API**, que o robô passou a ter um **cérebro** capaz de responder de forma inteligente e rápida, tornando a interação com a criança flúida e encantadora 😄!
+Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Google GEMINI API**, que o robô passou a ter um **cérebro** capaz de responder de forma inteligente e rápida, tornando a interação muito mais flúida e encantadora 😄!
 
 <div style="display: flex;">
 <img src="static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
@@ -39,7 +39,7 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 <img src="static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
-📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
+#### 📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
 
 ## Como as coisas funcionam
 
@@ -100,19 +100,35 @@ import service.talkService as talkService
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Troca de mensagens entre usuário e bot
+@app.route('/talk', methods=['POST']) 
+def talk():   
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return make_response(jsonify({"error": "Não autorizado"}), 401)
+
+    # obtem dados da requisição - mensagem do usuário
+    data = request.get_json()
+    userMessage = data.get('message')    
+
+    # Envia mensagem para Bot e aguarda respectiva resposta
+    botResponse = talkService.talk(userMessage)
+    
+    # retorna ao Front com resposta do Bot
+    return botResponse    
 ```
 
 ### Frontend - HTML, CSS e JavaScript
 
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 
-O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `mediadevices.js`.
+O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `static/js/mediadevices.js`.
 
 #### Acesso ao Microfone:
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
-Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `mediadevices.js`.
+Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `static/js/mediadevices.js`.
 
 ```javascript
 async function devices_micPrompt() {
@@ -139,7 +155,7 @@ async function devices_micPrompt() {
 ```
 
 #### Autenticação do Usuário:
-O processo de login é gerenciado pelo `login.js`, que envia uma requisição POST para o backend para validar o usuário. Se o usuário não tiver credenciais válidas, ele pode fazer login como convidado.
+O processo de login é gerenciado pelo arquivo `static/js/login.js`, que envia uma requisição POST para o backend para validar o usuário. Se o usuário não tiver credenciais válidas, ele pode fazer login como convidado.
 
 ```javascript
 async function login(usertype) {    
@@ -185,12 +201,12 @@ async function login(usertype) {
 ```
 
 #### Interação:
-Após o login bem-sucedido, a interação começa no frontend com o arquivo `interaction.html`. A interface visual, gerenciada pelo `display.js`, é simples, com elementos que simbolizam escuta, pensamento e fala.
+Após o login bem-sucedido, a interação começa no frontend com o arquivo `templates/interaction.html`. A interface visual, gerenciada pelo arquivo `statis/js/display.js`, é simples, com elementos que simbolizam escuta, pensamento e fala.
 
 **Escuta Contínua e Processamento de Fala**:
-O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo `Talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
+O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo arquivo `static/js/talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
 
-#### Ouvir
+#### 🦻 OUVIR
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
@@ -222,7 +238,7 @@ recognition.onend = () => {
 };
 ```
 
-#### Falar
+#### 🗣️ FALAR
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
@@ -310,7 +326,7 @@ def talk(userMessage):
     return response
 ```
 
-### Conteúdo para crianças - Segurança no comportamento do modelo 
+### 🛡️ Conteúdo para crianças - Segurança no comportamento do modelo 
 
 A **Google Gemini API** oferece uma funcionalidade chamada `safety_settings` que permite controlar o comportamento do modelo de linguagem em relação à segurança, especialmente em conversas com crianças. Ao instanciar o modelo é possível definir os níveis desejados de proteção contra conteúdo impróprio ou perigoso.
 
@@ -415,7 +431,7 @@ def store(user_id, role, message):
         return False
 ```
 
-### Conclusão
+### ✅ Conclusão
 
 O Robô Educa combina criatividade física com inteligência artificial de ponta para criar uma experiência interativa e educacional para crianças. A arquitetura modular da plataforma e o uso de tecnologias web modernas a tornam escalável, segura e adaptável a diversos ambientes de aprendizado.
 
