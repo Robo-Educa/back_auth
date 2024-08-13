@@ -83,6 +83,8 @@ Para armazenamento de dados, a plataforma utiliza um banco de dados NoSQL, o **F
 
 ### Arquivos Principais e Funcionalidades
 
+![Pyton](https://img.shields.io/badge/python-v3-green)
+
 ### Backend - `routes.py`
 O arquivo `routes.py` gerencia todas as rotas disponíveis na aplicação. É aqui que diferentes endpoints são definidos para lidar com as interações dos usuários e o processamento de dados.
 
@@ -101,9 +103,15 @@ def home():
 ```
 
 ### Frontend - HTML, CSS e JavaScript
+
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+
 O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `mediadevices.js`.
 
 #### Acesso ao Microfone:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
 Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `mediadevices.js`.
 
 ```javascript
@@ -184,6 +192,8 @@ O robô começa com uma saudação e convida o usuário a participar de um quiz 
 
 #### Ouvir
 
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
 ```javascript
 recognition = new SpeechRecognition();
 recognition.lang = "pt-BR";
@@ -213,6 +223,8 @@ recognition.onend = () => {
 ```
 
 #### Falar
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
@@ -250,6 +262,8 @@ function removerEmojis(texto) {
 ```
 
 ### 🧠 Processamento Cognitivo com a API Google Gemini
+
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
 Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Isso é realizado utilizando a **API GEMINI**, que aproveita o modelo `gemini-1.5-flash` para respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais envolvente e realista.
 
@@ -341,6 +355,8 @@ E:
 **BLOCK_LOW_AND_ABOVE**: Bloqueia qualquer conteúdo dentro da categoria que seja considerado "baixo", "médio" ou "alto" em termos de risco. Este é o nível de segurança mais alto e é adequado para ambientes onde a proteção de crianças é priorizada.
 
 ### Armazenamento de Dados e Personalização
+
+![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 
 A plataforma armazena a conversa de cada usuário em um banco de dados do **Firestore** utilizando coleções NoSQL. Isto gera pelo menos dois grandes benefícios:
 

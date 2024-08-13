@@ -83,6 +83,8 @@ For data storage, the platform uses a NoSQL database, **Firebase/Firestore**, wh
 
 ### Main Files and Functionalities
 
+![Pyton](https://img.shields.io/badge/python-v3-green)
+
 ### Backend - `routes.py`
 The `routes.py` file manages all available routes in the application. This is where different endpoints are defined to handle user interactions and data processing.
 
@@ -101,9 +103,15 @@ def home():
 ```
 
 ### Frontend - HTML, CSS and JavaScript
+
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+
 The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `mediadevices.js`.
 
 #### Microphone Access:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
 When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `mediadevices.js` file. 
 
 ```javascript
@@ -184,6 +192,8 @@ The robot starts with a greeting and invites the user to participate in a progra
 
 #### To hear
 
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
 ```javascript
 recognition = new SpeechRecognition();
 recognition.lang = "pt-BR";
@@ -213,6 +223,8 @@ recognition.onend = () => {
 ```
 
 #### To speak
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
@@ -250,6 +262,8 @@ function removerEmojis(texto) {
 ```
 
 ### 🧠 Cognitive Processing with the Google Gemini API
+
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
 When a complete sentence is detected, it is sent to the backend for cognitive processing. This is done using the **GEMINI API**, which leverages the `gemini-1.5-flash` model for fast and accurate responses, ensuring fluid conversations that make the robot more engaging and realistic.
 
@@ -342,6 +356,8 @@ And:
 **BLOCK_LOW_AND_ABOVE**: Blocks any content within the category that is considered "low", "medium", or "high" in terms of risk. This is the highest security level and is appropriate for environments where child protection is a priority.
 
 ### Data Storage and Personalization
+
+![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 
 The platform stores each user's conversation in a **Firestore** database using NoSQL collections. This generates at least two major benefits:
 
