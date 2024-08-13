@@ -103,7 +103,7 @@ def home():
 ### Frontend - HTML, CSS e JavaScript
 O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `mediadevices.js`.
 
-**Acesso ao Microfone**:
+#### Acesso ao Microfone:
 Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `mediadevices.js`.
 
 ```javascript
@@ -130,7 +130,7 @@ async function devices_micPrompt() {
 }
 ```
 
-**Autenticação do Usuário**:
+#### Autenticação do Usuário:
 O processo de login é gerenciado pelo `login.js`, que envia uma requisição POST para o backend para validar o usuário. Se o usuário não tiver credenciais válidas, ele pode fazer login como convidado.
 
 ```javascript
@@ -176,11 +176,13 @@ async function login(usertype) {
 }
 ```
 
-**Interação**:
+#### Interação:
 Após o login bem-sucedido, a interação começa no frontend com o arquivo `interaction.html`. A interface visual, gerenciada pelo `display.js`, é simples, com elementos que simbolizam escuta, pensamento e fala.
 
 **Escuta Contínua e Processamento de Fala**:
 O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo `Talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
+
+#### Ouvir
 
 ```javascript
 recognition = new SpeechRecognition();
@@ -209,6 +211,8 @@ recognition.onend = () => {
     }        
 };
 ```
+
+#### Falar
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones

@@ -103,7 +103,7 @@ def home():
 ### Frontend - HTML, CSS and JavaScript
 The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `mediadevices.js`.
 
-**Microphone Access**:
+#### Microphone Access:
 When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `mediadevices.js` file. 
 
 ```javascript
@@ -130,7 +130,7 @@ async function devices_micPrompt() {
 }
 ```
 
-**User Authentication**:
+#### User Authentication:
 The login process is managed by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
 
 ```javascript
@@ -176,11 +176,13 @@ async function login(usertype) {
 }
 ```
 
-**Interaction**:
+#### Interaction:
 After successful login, interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
 
 **Continuous Listening and Speech Processing**:
 The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `Talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
+
+#### To hear
 
 ```javascript
 recognition = new SpeechRecognition();
@@ -209,6 +211,8 @@ recognition.onend = () => {
     }        
 };
 ```
+
+#### To speak
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
