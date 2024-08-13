@@ -289,6 +289,9 @@ Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliad
 import google.generativeai as genai
 
 genai.configure(api_key=my_api_key)
+
+system_instruction = os.environ.get("SYSTEM_INSTRUCTIONS")    # Gemini - Instruções do Sistema / Informa as caracteristicas do Assistente.
+
 model = genai.GenerativeModel(model_name=ai_model,
         generation_config=generation_config,
         system_instruction=system_instruction,
@@ -355,6 +358,7 @@ model = genai.GenerativeModel(model_name=ai_model,
         system_instruction=system_instruction,
         safety_settings=safety_settings)
 ```
+
 Sendo:
 
  **category**: A categoria específica de conteúdo prejudicial que você deseja bloquear. As categorias disponíveis são:
@@ -382,30 +386,6 @@ A plataforma armazena a conversa de cada usuário em um banco de dados do **Fire
 * Modelo de preços baseado em uso: Você paga apenas pelos recursos que usa, o que pode ser mais econômico em comparação com bancos de dados relacionais tradicionais, especialmente para aplicações de chatbot com alto volume de conversas.
 * Permite a moderação das conversas, para controle de qualidade e segurança da comunicação;
 * Permite a personalização do conteúdo. 
-
-### Personalização do conteúdo
-
-E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
-
-Algumas aplicações práticas para uso desta capacidade:
-
-1. Históricos de Aprendizagem Detalhados: 
-
-***Mapeamento do Progresso***: Armazenar o histórico completo de interações de um aluno, como respostas a exercícios, testes, debates, feedback, tempo dedicado a cada assunto, etc., permite mapear o progresso de forma individualizada e granular.
-
-***Identificação de Padrões***: Analisar esses dados permite identificar padrões de comportamento, áreas de dificuldade, pontos fortes e estilos de aprendizagem de cada aluno.
-
-2. Criação de Rotas de Aprendizagem Personalizadas:
-
-***Recomendador Inteligente***: Com base no histórico, o sistema pode recomendar conteúdo, atividades, exercícios e recursos específicos para cada aluno, adaptando o ritmo e o nível de dificuldade.
-
-***Conteúdo sob Demanda:*** O modelo pode gerar material de apoio, explicações adicionais, resumos ou exemplos sobre tópicos específicos onde o aluno demonstra dificuldades.
-
-3. Feedback Personalizado e Interativo:
-
-***Análise de Respostas:*** O modelo pode analisar respostas, identificando erros, lacunas de conhecimento e áreas que precisam de reforço.
-
-***Feedback Adaptativo:*** O feedback pode ser personalizado com explicações claras, exemplos e dicas específicas para cada aluno, aumentando o aprendizado e a retenção.
 
 ```python
 import time
@@ -436,6 +416,30 @@ def store(user_id, role, message):
         print(f"Erro ao salvar mensagem no banco de dados. Detalhes: {e}")
         return False
 ```
+
+### Personalização do conteúdo
+
+E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
+
+Algumas aplicações práticas para uso desta capacidade:
+
+1. Históricos de Aprendizagem Detalhados: 
+
+***Mapeamento do Progresso***: Armazenar o histórico completo de interações de um aluno, como respostas a exercícios, testes, debates, feedback, tempo dedicado a cada assunto, etc., permite mapear o progresso de forma individualizada e granular.
+
+***Identificação de Padrões***: Analisar esses dados permite identificar padrões de comportamento, áreas de dificuldade, pontos fortes e estilos de aprendizagem de cada aluno.
+
+2. Criação de Rotas de Aprendizagem Personalizadas:
+
+***Recomendador Inteligente***: Com base no histórico, o sistema pode recomendar conteúdo, atividades, exercícios e recursos específicos para cada aluno, adaptando o ritmo e o nível de dificuldade.
+
+***Conteúdo sob Demanda:*** O modelo pode gerar material de apoio, explicações adicionais, resumos ou exemplos sobre tópicos específicos onde o aluno demonstra dificuldades.
+
+3. Feedback Personalizado e Interativo:
+
+***Análise de Respostas:*** O modelo pode analisar respostas, identificando erros, lacunas de conhecimento e áreas que precisam de reforço.
+
+***Feedback Adaptativo:*** O feedback pode ser personalizado com explicações claras, exemplos e dicas específicas para cada aluno, aumentando o aprendizado e a retenção.
 
 ### ✅ Conclusão
 
