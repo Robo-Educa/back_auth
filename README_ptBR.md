@@ -41,6 +41,8 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 
 #### 📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
 
+#### 📢 Assista o [depoimento](https://youtu.be/rjb9G7iBl8Q) de diretores, professores e alunos que já utilizaram nossa plataforma.
+
 ## Como as coisas funcionam
 
 ### 👤 CORPO

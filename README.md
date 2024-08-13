@@ -41,6 +41,8 @@ But it was only in the year 2024 with the advent of **Generative AI** and the **
 
 #### 📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
 
+#### 📢 Watch the [testimonial](https://youtu.be/rjb9G7iBl8Q) from directors, teachers and students who have already used our platform.
+
 ## How things work
 
 ### 👤 BODY
