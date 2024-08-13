@@ -292,9 +292,78 @@ def talk(userMessage):
     return response
 ```
 
+### Conteúdo para crianças - Segurança no comportamento do modelo 
+
+A **Google Gemini API** oferece uma funcionalidade chamada `safety_settings` que permite controlar o comportamento do modelo de linguagem em relação à segurança, especialmente em conversas com crianças. Ao instanciar o modelo é possível definir os níveis desejados de proteção contra conteúdo impróprio ou perigoso.
+
+```python
+safety_settings = [  
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  }
+]
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
+```
+Sendo:
+
+ **category**: A categoria específica de conteúdo prejudicial que você deseja bloquear. As categorias disponíveis são:
+
+* HARM_CATEGORY_HARASSMENT: Bloqueia conteúdo que pode ser considerado bullying, assédio ou perseguição.
+* HARM_CATEGORY_HATE_SPEECH: Bloqueia conteúdo que promove o ódio, a violência ou a discriminação contra grupos específicos.
+* HARM_CATEGORY_SEXUALLY_EXPLICIT: Bloqueia conteúdo sexualmente explícito ou sugestivo.
+* HARM_CATEGORY_DANGEROUS_CONTENT: Bloqueia conteúdo que pode ser considerado perigoso, como instruções para atividades perigosas ou informações sobre como fabricar armas.
+
+E:
+
+**threshold**: O parâmetro que define o nível de rigor com que o modelo deve bloquear conteúdo dentro de uma determinada categoria. O valor selecionado foi:
+
+**BLOCK_LOW_AND_ABOVE**: Bloqueia qualquer conteúdo dentro da categoria que seja considerado "baixo", "médio" ou "alto" em termos de risco. Este é o nível de segurança mais alto e é adequado para ambientes onde a proteção de crianças é priorizada.
+
 ### Armazenamento de Dados e Personalização
 
-A plataforma armazena a conversa de cada usuário no Firestore utilizando coleções NoSQL. Isso garante a segurança das crianças, além de permitir a moderação e personalização do conteúdo.
+A plataforma armazena a conversa de cada usuário em um banco de dados do **Firestore** utilizando coleções NoSQL. Isto gera pelo menos dois grandes benefícios:
+
+* Garantir a segurança em uma eventual necessidade de moderação;
+* Permitir a personalização do conteúdo. 
+
+E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
+
+Algumas aplicações práticas para uso desta capacidade:
+
+1. Históricos de Aprendizagem Detalhados: 
+
+***Mapeamento do Progresso***: Armazenar o histórico completo de interações de um aluno, como respostas a exercícios, testes, debates, feedback, tempo dedicado a cada assunto, etc., permite mapear o progresso de forma individualizada e granular.
+
+***Identificação de Padrões***: Analisar esses dados permite identificar padrões de comportamento, áreas de dificuldade, pontos fortes e estilos de aprendizagem de cada aluno.
+
+2. Criação de Rotas de Aprendizagem Personalizadas:
+
+***Recomendador Inteligente***: Com base no histórico, o sistema pode recomendar conteúdo, atividades, exercícios e recursos específicos para cada aluno, adaptando o ritmo e o nível de dificuldade.
+
+***Conteúdo sob Demanda:*** O modelo pode gerar material de apoio, explicações adicionais, resumos ou exemplos sobre tópicos específicos onde o aluno demonstra dificuldades.
+
+3. Feedback Personalizado e Interativo:
+
+***Análise de Respostas:*** O modelo pode analisar respostas, identificando erros, lacunas de conhecimento e áreas que precisam de reforço.
+
+***Feedback Adaptativo:*** O feedback pode ser personalizado com explicações claras, exemplos e dicas específicas para cada aluno, aumentando o aprendizado e a retenção.
 
 ```python
 import time

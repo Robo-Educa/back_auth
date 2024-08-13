@@ -292,39 +292,79 @@ def talk(userMessage):
     return response
 ```
 
-### Data Storage and Personalization
+### Content for Children - Safety in Model Behavior
 
-The platform stores each user's conversation in Firestore using NoSQL collections. This ensures the safety of children, as well as allowing for content moderation and personalization. 
+The **Google Gemini API** offers a feature called `safety_settings` that allows you to control the language model's behavior in terms of safety, especially in conversations with children. When instantiating the model, it is possible to define the desired levels of protection against inappropriate or dangerous content.
 
 ```python
-import time
-import repository.db_resource as dbr
-
-# Instância de conexão com banco de dados NoSQL Google Firestore
-db = dbr.firestore_resource()       
-
-# Obtem histórico de mensagens a partir do ID do usuário
-def getById(user_id):
-    collection = f"message_history_{user_id}"
-    messages_ref = db.collection(collection).order_by("timestamp")
-    messages = messages_ref.stream()
-
-    return messages
-
-# Salva mensagem para recuperação de histórico de conversa na contextualização da resposta
-def store(user_id, role, message):
-    collection = f"message_history_{user_id}"
-    try:
-        doc_ref = db.collection(collection).document()
-        doc_ref.set({
-            "timestamp": int(time.time()),
-            "role": role,
-            "parts": [message]
-        })    
-    except Exception as e:
-        print(f"Erro ao salvar mensagem no banco de dados. Detalhes: {e}")
-        return False
+safety_settings = [  
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  }
+]
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
 ```
+
+Where:
+
+**category**: The specific category of harmful content you want to block. Available categories are:
+
+* HARM_CATEGORY_HARASSMENT: Blocks content that may be considered bullying, harassment, or stalking.
+* HARM_CATEGORY_HATE_SPEECH: Blocks content that promotes hatred, violence, or discrimination against specific groups.
+* HARM_CATEGORY_SEXUALLY_EXPLICIT: Blocks sexually explicit or suggestive content.
+* HARM_CATEGORY_DANGEROUS_CONTENT: Blocks content that may be considered dangerous, such as instructions for dangerous activities or information on how to manufacture weapons.
+
+And:
+
+**threshold**: The parameter that defines the level of strictness with which the model should block content within a given category. The selected value was:
+
+**BLOCK_LOW_AND_ABOVE**: Blocks any content within the category that is considered "low", "medium", or "high" in terms of risk. This is the highest security level and is appropriate for environments where child protection is a priority.
+
+### Data Storage and Personalization
+
+The platform stores each user's conversation in a **Firestore** database using NoSQL collections. This generates at least two major benefits:
+
+* Ensure safety in the event of a need for moderation;
+* Allow content personalization.
+
+And regarding content personalization, **Google GEMINI** is capable of handling up to **2 million Tokens**. This represents a considerable volume of data, capable of storing a significant amount of information and interactions for educational content personalization.
+
+Some practical applications for using this capacity:
+
+1. Detailed Learning Histories:
+
+***Progress Mapping***: Storing a complete history of a student's interactions, such as responses to exercises, tests, debates, feedback, time spent on each subject, etc., allows progress to be mapped in a granular and individualized manner.
+
+***Pattern Identification***: Analyzing this data allows you to identify behavioral patterns, areas of difficulty, strengths, and learning styles for each student.
+
+2. Creating Personalized Learning Paths:
+
+***Intelligent Recommender***: Based on history, the system can recommend specific content, activities, exercises, and resources for each student, adapting the pace and difficulty level.
+
+***On-Demand Content:*** The model can generate supporting materials, additional explanations, summaries, or examples on specific topics where the student demonstrates difficulties.
+
+3. Personalized and Interactive Feedback:
+
+***Response Analysis:*** The model can analyze responses, identifying errors, knowledge gaps, and areas that need reinforcement.
+
+***Adaptive Feedback:*** Feedback can be personalized with clear explanations, examples, and specific tips for each student, increasing learning and retention. 
 
 ### Conclusion
 
