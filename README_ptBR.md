@@ -283,9 +283,13 @@ function removerEmojis(texto) {
 
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
-Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Isso é realizado utilizando a **API GEMINI**, que aproveita o modelo `gemini-1.5-flash` para respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais envolvente e realista.
+#### Rapidez nas respostas utilizando o modelo: **gemini-1.5-flash** 
 
-Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliada a um recurso do SDK do GEMINI, as **System instructions**, que fornecem um quadro de referência para o modelo, ajudando-o a compreender a tarefa e a responder de forma adequada sem precisar de exemplos específicos.
+Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Esta tarefa é realizada pela **API do GEMINI**, utilizando o modelo `gemini-1.5-flash` que produz respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais **envolvente e realista**.
+
+#### Engenharia de Prompt
+
+Utilizamos a técnica **Zero-Shot Prompting** aliada a um recurso do SDK do GEMINI, as **System instructions**, que fornecem um quadro de referência para o modelo, ajudando-o a compreender a tarefa e a responder de forma adequada sem precisar de exemplos específicos.
 
 ```python
 import google.generativeai as genai
@@ -329,6 +333,28 @@ def talk(userMessage):
 
     response = {"status": "success", "message": bot_response}
     return response
+```
+
+### Configurando a criatividade das respostas
+
+O parâmetro `generation_config` é utilizado para controlar o comportamento do modelo de linguagem durante a geração de texto. Ele contém várias configurações importantes que influenciam a criatividade, o foco e o tamanho das respostas do modelo. 
+
+Em especial chamamos a atenção para a configuração de **TEMPERATURE'** que controla o grau de aleatoriedade nas respostas. Valores mais altos (próximos a 2) levam a resultados mais criativos e diversificados, mas podem ser menos previsíveis e eventualente podem conter erros/alucinações. Valores mais baixos (próximos a 0) geram respostas mais focadas e conservadoras, porém, tendendo a repetir padrões comuns. 
+
+A configuração `max_output_tokens` define o número máximo de tokens (palavras ou subpalavras) que o modelo pode gerar na resposta. Isso evita respostas excessivamente longas e ajuda a controlar o tempo de processamento.
+
+```python
+generation_config = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 64,
+  "max_output_tokens": 8192  
+}
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
 ```
 
 ### 🛡️ Conteúdo para crianças - Segurança no comportamento do modelo 
@@ -419,7 +445,7 @@ def store(user_id, role, message):
         return False
 ```
 
-### Personalização do conteúdo
+### 🎯 Personalização do conteúdo
 
 E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
 
@@ -447,7 +473,7 @@ Algumas aplicações práticas para uso desta capacidade:
 
 O Robô Educa combina criatividade física com inteligência artificial de ponta para criar uma experiência interativa e educacional para crianças. A arquitetura modular da plataforma e o uso de tecnologias web modernas a tornam escalável, segura e adaptável a diversos ambientes de aprendizado.
 
-## ✍️ Como executar este aplicativo em seu PC Windows
+## 💻 Como executar este aplicativo em seu PC Windows
 
 1. Clone o repositório:
 ```
